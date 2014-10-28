@@ -1,9 +1,19 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>BLOG</title>
+    <script src="js/other/jquery-1.9.1.js"></script>
+    <script src="js/other/angular.js"></script>
+    <script src="js/common/common.date.js"></script>
+    <script src="js/test/app.js"></script>
 </head>
-<body>
-Welcome to our blog!!
+<body ng-app="app">
+    <h1 style="text-align: center">Welcome to our Blog</h1>
+
+    <div ng-controller="MyController" style="text-align: right">
+        <h5> Current Time:{{ clock.now }}</h5>
+    </div>
+    <hr/>
+
+    <a href="html/test.html">Go to test</a>
 </body>
 </html>
