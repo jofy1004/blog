@@ -1,6 +1,6 @@
 /** 自定义js*/
 
-var clientInfo = function($) {
+var ClientInfo = function($) {
 
     var init = function() {
         var WshNetwork = new ActiveXObject("WScript.Network");

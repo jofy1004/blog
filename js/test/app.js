@@ -24,3 +24,17 @@ app.controller("CalcController", function($scope) {
         $scope.counter -= amount;
     };
 });
+
+app.controller("ShowController", function($scope) {
+    $scope.titleInfo = "";
+    $scope.contentInfo = "";
+    $scope.showInfo = function() {
+        var url = "http://jofy1004.github.io/blog/data/dataFile.xml"
+        QueryData.query(url).done(function(data) {
+            if (data) {
+                $scope.titleInfo = $(data).find("title").text();
+                $scope.contentInfo = $(data).find("content").text();
+            }
+        });
+    }
+});

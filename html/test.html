@@ -1,28 +1,28 @@
-<html >
-    <head>
-        <script src="../js/other/jquery-1.9.1.js"></script>
-        <script src="../js/other/angular.js"></script>
-        <script src="../js/common/common.date.js"></script>
-        <script src="../js/test/app.js"></script>
-        <script src="../js/custom.js"></script>
-    </head>
-    <body ng-app="app">
-		<div>
-			Your name:<input type="text" ng-model="person.name" placeholder="world" /><br/>
-			Hello <b>{{person.name || "world"}}!</b>
-		</div>
-		<hr/>
-		<div ng-controller = "MyController">
-			<h5>Time:{{ clock.now }}</h5>
-		</div>
-		<hr/>
-		<div ng-controller = "CalcController">
-			<h4>Add and subtract event</h4>
-			<button ng-click="add(1)" >Add</button>
-			<button ng-click="subtract(1)" >Subtract</button>
-			<br/>
-			Current value:{{counter}}
-		</div>
-		<hr/>
-    </body>
+<html>
+<head>
+    <script src="../js/other/jquery-1.9.1.js"></script>
+    <script src="../js/other/angular.js"></script>
+    <script src="../js/common/common.date.js"></script>
+    <script src="../js/test/app.js"></script>
+    <script src="../js/custom.js"></script>
+</head>
+<body ng-app="app">
+<div>
+    Your name:<input type="text" ng-model="person.name" placeholder="world"/><br/>
+    Hello <b>{{person.name || "world"}}!</b>
+</div>
+<hr/>
+<div ng-controller="MyController">
+    <h5>Time:{{ clock.now }}</h5>
+</div>
+<hr/>
+<div ng-controller="CalcController">
+    <h4>Add and subtract event</h4>
+    <button ng-click="add(1)">Add</button>
+    <button ng-click="subtract(1)">Subtract</button>
+    <br/>
+    Current value:{{counter}}
+</div>
+<hr/>
+</body>
 </html>
