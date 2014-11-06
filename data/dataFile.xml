@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
-    <title>测试文本</title>
-    <content>内容随便了。看看是否可以显示出来！</content>
+    <title>第一篇github</title>
+    <time>2014-10-30</time>
+    <content>第一篇文章，不知道写什么，就只是为了单纯创造些数据上去为了查看。查了些网上的，制作这种github的gh-pages，都是用工具生成HTML页面，然后上传来展示。我没有效仿，其实是没搞明白如何弄，我用的方式是JQuery的ajax读取mxl文件来获取数据，只要每次写的文章的xml上传上去，就可以查询到了，不知道比起前种方式利弊如何，好了，够长了。</content>
 </data>

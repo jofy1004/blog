@@ -1,0 +1,25 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>定义服务</title>
+    <script src="../js/other/jquery-1.9.1.js"></script>
+    <script src="../js/other/angular.js"></script>
+    <script src="../js/common/common.date.js"></script>
+
+    <script src="../js/test/customTag.js"></script>
+</head>
+<body ng-app="tagParser">
+
+<div ng-controller="CustomTagController">
+    <h4>定义开始和结束标签</h4>
+    <div>
+        <input type="text" ng-model="to" type="email"/><br/>
+        <textarea ng-model="customTagBody"></textarea>
+        <pre>--customTagPreviewText--</pre>
+    </div>
+</div>
+<hr/>
+
+</body>
+</html>

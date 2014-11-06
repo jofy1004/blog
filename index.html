@@ -3,24 +3,24 @@
     <title>BLOG</title>
     <script src="js/other/jquery-1.9.1.js"></script>
     <script src="js/other/angular.js"></script>
+    <script src="js/other/jquery-ui.js"></script>
+
     <script src="js/common/common.date.js"></script>
     <script src="js/test/queryData.js"></script>
     <script src="js/test/app.js"></script>
+
+    <link href="css/customCss.css" rel="stylesheet" type="text/css"/>
 </head>
 <body ng-app="app">
 <h1 style="text-align: center">Welcome to our Blog</h1>
 
 <div ng-controller="MyController" style="text-align: right">
-    <h5> Current Time:{{ clock.now }}</h5>
+    <h2> Current Time:{{ clock.now }}</h2>
 </div>
 
-<div ng-controller="ShowController">
-    <h4>Add and subtract event</h4>
-    <button ng-click="showInfo()">test</button>
-    <br/>
-    title:{{titleInfo}}
-    <br/>
-    content:{{contentInfo}}
+<div id="boxDiv" ng-controller="ShowController" class="box blurred-bg tinted">
+    <h2>{{titleInfo}} | {{timeInfo}}</h2>
+    <p>{{contentInfo}}</p>
 </div>
 
 <hr/>

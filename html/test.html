@@ -1,28 +1,58 @@
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <script src="../js/other/jquery-1.9.1.js"></script>
     <script src="../js/other/angular.js"></script>
     <script src="../js/common/common.date.js"></script>
+
     <script src="../js/test/app.js"></script>
-    <script src="../js/custom.js"></script>
 </head>
 <body ng-app="app">
 <div>
-    Your name:<input type="text" ng-model="person.name" placeholder="world"/><br/>
-    Hello <b>{{person.name || "world"}}!</b>
+    <div ng-controller="FilterController">
+        <h4>初级绑定数据</h4>
+        Your name:<input type="text" ng-model="person.name" placeholder="world"/><br/>
+        Hello <b>{{person.name || "world"}}!</b>
+
+        <h4>内置过滤器，字母变大写</h4>
+        Hello <b>{{person.name || "world" | uppercase}}!</b>
+
+        <h4>自定义过滤器，字母变小写</h4>
+        Hello <b>{{person.nameLower}}!</b>
+    </div>
 </div>
 <hr/>
 <div ng-controller="MyController">
+    <h4>时钟</h4>
     <h5>Time:{{ clock.now }}</h5>
 </div>
 <hr/>
+
 <div ng-controller="CalcController">
-    <h4>Add and subtract event</h4>
+    <h4>Click事件</h4>
     <button ng-click="add(1)">Add</button>
     <button ng-click="subtract(1)">Subtract</button>
     <br/>
     Current value:{{counter}}
 </div>
 <hr/>
+
+<div ng-controller="WatchController">
+    <h4>表达式和插入</h4>
+    <input type="text" ng-model="watchName"/><br/>
+    before:<b>{{beforeWatchName}}</b>
+    <br/>
+    &nbsp;after:<b>{{watchName}}</b>
+    <br/><br/>
+
+    <div>
+        <input type="text" ng-model="mailTo" type="email"/><br/>
+        <textarea ng-model="emailBody"></textarea>
+        <pre>{{previewText}}</pre>
+    </div>
+</div>
+<hr/>
+
 </body>
 </html>
