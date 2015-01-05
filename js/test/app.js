@@ -57,9 +57,9 @@ app.controller("CalcController", function($scope) {
 app.controller("FilterController", function($scope, $filter) {
     $scope.person = {
         name : "world"
-    }
+    };
     $scope.$watch("person.name", function(val) {
-        $scope.person.nameLower = $filter("lowercase")(val);
+        $scope.person.nameLower = val;
     });
 });
 
@@ -75,6 +75,17 @@ app.controller("ShowController", function($scope) {
             $scope.contentInfo = $(data).find("content").text();
         }
     });
+});
+
+/**
+ * 自定义过滤器，功能：首字母大写，其他小写
+ */
+app.filter("capitalize", function(){
+    return function(input){
+        if(input){
+            return input[0].toUpperCase() + input.slice(1).toLowerCase();
+        }
+    };
 });
 
 $(function() {
