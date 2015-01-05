@@ -28,11 +28,13 @@ app.controller("WatchController", function($scope, $interpolate) {
     });
 
     $scope.$watch("emailBody", function(value) {
-        $scope.mailTo = "xxx@cccis.com";
+        var emailBody = "Hello {{ to }}：\n{{body}}\n My name is AngelarJS!";
         if (value) {
-            var template = $interpolate(value);
+            var template = $interpolate(emailBody);
+            debugger;
             $scope.previewText = template({
-                to : $scope.mailTo
+                to : $scope.mailTo,
+                body : value
             });
         }
 
@@ -56,7 +58,7 @@ app.controller("FilterController", function($scope, $filter) {
     $scope.person = {
         name : "world"
     }
-    $scope.$watch("person.name", function(val){
+    $scope.$watch("person.name", function(val) {
         $scope.person.nameLower = $filter("lowercase")(val);
     });
 });
