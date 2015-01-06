@@ -64,17 +64,17 @@ app.controller("FilterController", function($scope, $filter) {
 });
 
 app.controller("ShowController", function($scope) {
-    $scope.titleInfo = "";
-    $scope.timeInfo = "";
-    $scope.contentInfo = "";
-    var url = "http://jofy1004.github.io/blog/data/dataFile.xml"
+    $scope.titleInfo = "111";
+    $scope.timeInfo = "222";
+    $scope.contentInfo = "333";
+    /*var url = "http://jofy1004.github.io/blog/data/dataFile.xml"
     QueryData.query(url).done(function(data) {
         if (data) {
             $scope.titleInfo = $(data).find("title").text();
             $scope.timeInfo = $(data).find("time").text();
             $scope.contentInfo = $(data).find("content").text();
         }
-    });
+    });*/
 });
 
 /**

@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script src="../js/other/jquery-1.9.1.js"></script>
+    <script src="../js/other/angular.js"></script>
+    <script src="../js/common/common.date.js"></script>
+    <link href="../css/customCss.css" rel="stylesheet" type="text/css"/>
+
+    <script src="../js/test/formApp.js"></script>
+</head>
+<body ng-app="formApp">
+<form name="signUp_form" novalidateng-submit="signUpForm()">
+    <div ng-controller="FormController">
+        <h4>表单提交验证</h4>
+        姓名：<input type="text" ng-model="user.name" name="name" placeholder="name" ng-minlength="2" ng-maxlength="10" required/>
+        <div class="error"
+             ng-show="signUp_form.name.$dirty && signUp_form.name.$invalid">
+            <small class="error"
+                   ng-show="signUp_form.name.$error.required">
+                Your name is required.
+            </small>
+            <small class="error"
+                   ng-show="signUp_form.name.$error.minlength">
+                Your name is required to be at least 2 characters
+            </small>
+            <small class="error"
+                   ng-show="signUp_form.name.$error.maxlength">
+                Your name cannot be longer than 10 characters
+            </small>
+        </div>
+
+        <br/>
+        性别：<input type="text" ng-model="user.sex" placeholder="男/女"/>
+        <br/>
+        邮箱：<input type="email" ng-model="user.email" placeholder="email"/>
+        <br/>
+        电话：<input type="number" ng-model="user.tel" placeholder="telephone"/>
+    </div>
+    <button type="submit" class="button radius">Submit</button>
+</form>
+<hr/>
+
+</body>
+</html>
