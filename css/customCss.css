@@ -64,7 +64,11 @@ h1, h2, a, p {
 }
 
 h2, h4 {
-    font-size: 14px;
+    font-size: 15px;
+}
+
+h5 {
+    font-size: 8px;
 }
 
 
@@ -74,4 +78,8 @@ b {
 
 p {
     margin: 20px;
+}
+
+.red{
+    color : red;
 }

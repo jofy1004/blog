@@ -15,7 +15,7 @@
         <div ng-controller="FilterController">
             <h4>初级绑定数据</h4>
             Your name:<input type="text" ng-model="person.name" placeholder="world"/>
-            Hello <b>{{person.name || "world"}}!</b>
+            Hello <b ng-bind="person.name || world"></b>
 
             <h4>内置过滤器，字母变大写：</h4>
             Hello <b>{{person.name | uppercase}}</b>

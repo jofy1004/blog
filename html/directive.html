@@ -77,6 +77,68 @@
 
     <div both-way-directive some-attr="theirUrl" link-text="搜索"></div>
 
+    <h4>内置指令</h4>
+
+    <h5>input 不为空，则控件相应变化</h5>
+    <input ng-model="value" type="text">
+    <br/>
+    <button ng-model="button" ng-disabled="!value">按钮</button>
+    |
+    <input type="checkbox" ng-model="checked" ng-checked="value"/> |
+    <select>
+        <option>Please Select</option>
+        <option>One Fish</option>
+        <option ng-selected="value">Two Fish</option>
+    </select>
+    <a ng-href="{{valueHref}}" ng-controller="inController">不为空则链接能用</a>
+    <br/>
+    <img ng-src="{{imgSrc}}" ng-controller="inController" width="100" height="70" border="1"/>
+
+    <br/>
+    <h4>ng-if</h4>
+
+    <div ng-if="2+2===5">
+        Won't see this DOM node, not even in the source code
+    </div>
+    <div ng-if="2+2===4">
+        Hi, I do exist
+    </div>
+
+    <br/>
+
+    <div ng-show="2 + 2 == 5">
+        2 + 2 isn't 5, don't show
+    </div>
+    <div ng-show="2 + 2 == 4">
+        2 + 2 is 4, do show
+    </div>
+    <div ng-hide="2 + 2 == 5">
+        2 + 2 isn't 5, don't hide
+    </div>
+    <div ng-hide="2 + 2 == 4">
+        2 + 2 is 4, do hide
+    </div>
+
+    <h4>ng-select</h4>
+
+    <div ng-controller="selectController">
+        <select ng-model="city" ng-options="city.name for city in cities">
+            <option value="">Choose City</option>
+        </select>
+        Choose City:{{city.name}}
+    </div>
+
+    <h4>ng-class</h4>
+
+    <div ng-controller="LotteryController">
+        <div ng-class="{red: x > 5}">
+            You won!
+        </div>
+        <button ng-click="x = generateNumber()" ng-init="x = 0">
+            Draw Number
+        </button>
+        Number is: {{ x }}
+    </div>
 </div>
 </body>
 </html>

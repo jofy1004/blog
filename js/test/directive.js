@@ -84,3 +84,35 @@ directiveApp
                         template : '<div>自定义的标签：<input ng-model="linkUrl" type="text" placeholder="http://www.bing.com"> <a href="{{linkUrl}}">{{linkText}}</a></div>'
                     }
                 });
+
+directiveApp.controller("inController", function($scope, $timeout) {
+    $scope.$watch("value", function(value) {
+        if (value != null) {
+            $timeout(function() {
+                $scope.valueHref = "http://www.bing.com";
+            }, 500);
+
+            $scope.imgSrc = "../images/test.png";
+        }
+    });
+});
+
+directiveApp.controller("selectController", function($scope) {
+    $scope.cities = [ {
+        name : 'Seattle'
+    }, {
+        name : 'San Francisco'
+    }, {
+        name : 'Chicago'
+    }, {
+        name : 'New York'
+    }, {
+        name : 'Boston'
+    } ];
+});
+
+directiveApp.controller('LotteryController', function($scope) {
+    $scope.generateNumber = function() {
+        return Math.floor((Math.random() * 10) + 1);
+    };
+});
