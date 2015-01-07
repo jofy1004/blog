@@ -31,7 +31,6 @@ app.controller("WatchController", function($scope, $interpolate) {
         var emailBody = "Hello {{ to }}：\n{{body}}\n My name is AngelarJS!";
         if (value) {
             var template = $interpolate(emailBody);
-            debugger;
             $scope.previewText = template({
                 to : $scope.mailTo,
                 body : value
@@ -54,6 +53,9 @@ app.controller("CalcController", function($scope) {
     };
 });
 
+/**
+ * 过滤器
+ */
 app.controller("FilterController", function($scope, $filter) {
     $scope.person = {
         name : "world"
@@ -78,14 +80,78 @@ app.controller("ShowController", function($scope) {
 });
 
 /**
+ * 继承与隔离
+ */
+app.controller("extendAndIsolation", function($scope) {
+
+}).controller("secondExtendAndIsolation", function($scope) {
+
+});
+
+/**
+ * 继承但不隔离
+ */
+app.controller("extendButNotController", function($scope) {
+
+}).directive("customDirective", function() {
+    return {
+        restrict : 'A',
+        scope : false,
+        priority : 100,
+        template : '<div>内部：{{value}} <input ng-model="value"/></div>'
+    }
+});
+
+/**
+ * 继承并隔离
+ */
+app.controller("extendAndController", function($scope) {
+
+}).directive("customDirectiveTwo", function() {
+    return {
+        restrict : 'A',
+        scope : true,
+        priority : 100,
+        template : '<div>内部：{{value}} <input ng-model="value"/></div>'
+    }
+});
+
+
+/**
+ * 隔离不继承
+ */
+app.controller("isolationController", function($scope) {
+
+}).directive("customDirectiveThree", function() {
+    return {
+        restrict : 'A',
+        scope : {},
+        priority : 100,
+        template : '<div>内部：{{value}} <input ng-model="value"/></div>'
+    }
+});
+
+/**
  * 自定义过滤器，功能：首字母大写，其他小写
  */
-app.filter("capitalize", function(){
-    return function(input){
-        if(input){
+app.filter("capitalize", function() {
+    return function(input) {
+        if (input) {
             return input[0].toUpperCase() + input.slice(1).toLowerCase();
         }
     };
+});
+
+/**
+ * 自定义指令
+ */
+app.directive('myDerective', function() {
+    return {
+        restrict : 'EAC',
+        template : function(element, attr) {
+            return '<a href="' + attr.value + '">' + attr.text + '</a>';
+        }
+    }
 });
 
 $(function() {
