@@ -1,0 +1,82 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script src="../js/other/jquery-1.9.1.js"></script>
+    <script src="../js/other/angular.js"></script>
+    <script src="../js/common/common.date.js"></script>
+    <link href="../css/customCss.css" rel="stylesheet" type="text/css"/>
+
+    <script src="../js/test/directive.js"></script>
+</head>
+<body>
+<div ng-app="directiveApp">
+    <h4>自定义指令</h4>
+    <my-directive value="http://www.baidu.com" text="百度"></my-directive>
+    <hr/>
+
+    <h4>继承</h4>
+
+    <div ng-init="name='grandfather'">
+        第一代：{{name}}
+        <div ng-controller="extendAndIsolation">
+            第二代：{{name}}
+            <div ng-controller="secondExtendAndIsolation">
+                第三代：{{name}}
+            </div>
+        </div>
+    </div>
+
+    <h4>隔离</h4>
+
+    <div ng-init="name='grandfather'">
+        第一代：{{name}}
+        <div ng-init="name='father'" ng-controller="extendAndIsolation">
+            第二代：{{name}}
+            <div ng-init="name='me'" ng-controller="secondExtendAndIsolation">
+                第三代：{{name}}
+            </div>
+        </div>
+    </div>
+
+    <h4>继承但不隔离</h4>
+
+    <div ng-init="value='extendBut'" ng-controller="extendButNotController">
+        外部：{{value}}
+        <input ng-model="value">
+
+        <div custom-directive></div>
+    </div>
+
+    <h4>继承并隔离</h4>
+
+    <div ng-init="value='extendAnd'" ng-controller="extendAndController">
+        外部：{{value}}
+        <input ng-model="value">
+
+        <div custom-directive-two></div>
+    </div>
+
+    <h4>隔离不继承</h4>
+
+    <div ng-init="value='isolation'" ng-controller="isolationController">
+        外部：{{value}}
+        <input ng-model="value">
+
+        <div custom-directive-three></div>
+    </div>
+    <hr/>
+
+    <h4>向指令传递数据</h4>
+    <input ng-model="linkUrl" type="text" required="http://www.bing.com">
+
+    <div param-directive link-url="{{linkUrl}}" link-text="搜索"></div>
+
+    <h4>指令双向传递数据</h4>
+    input的标签：<input ng-model="theirUrl" type="text">
+
+    <div both-way-directive some-attr="theirUrl" link-text="搜索"></div>
+
+</div>
+</body>
+</html>
