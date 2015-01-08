@@ -6,6 +6,7 @@ var directiveApp = angular.module("directiveApp", []);
 directiveApp.directive('myDirective', function() {
     return {
         restrict : 'EAC',
+        //replace : true,
         template : function(element, attr) {
             return '<a href="' + attr.value + '">' + attr.text + '</a>';
         }
@@ -115,4 +116,15 @@ directiveApp.controller('LotteryController', function($scope) {
     $scope.generateNumber = function() {
         return Math.floor((Math.random() * 10) + 1);
     };
+});
+
+directiveApp.directive("sideBox", function() {
+    return {
+        restrict : 'EA',
+        scope : {
+            title : '@'
+        },
+        transclude : true,
+        template : '<div><div><h2>{{ title }}</h2><span ng-transclude></span></div></div>'
+    }
 });
