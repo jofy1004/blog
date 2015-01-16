@@ -128,3 +128,54 @@ directiveApp.directive("sideBox", function() {
         template : '<div><div><h2>{{ title }}</h2><span ng-transclude></span></div></div>'
     }
 });
+
+directiveApp.directive('linkDirective', function() {
+    return {
+        restrict : 'EA',
+        transclude : true,
+        controller : function($scope, $element, $transclude, $log) {
+            $transclude(function(clone) {
+                var a = angular.element('<a>');
+                a.attr('href', clone.text());
+                a.text(clone.text());
+                $log.info("Created new a tag in link directive");
+                $element.append(a);
+            });
+        }
+    };
+});
+
+directiveApp.directive("asDirective", function(){
+    return {
+        restrict : "A",
+        // controllerAs : 'ctrlAs',
+        // template : '<h4>{{ctrlAs.name}}</h4>',
+        controller : function(){
+            this.name = '张三';
+        }
+    };
+});
+
+directiveApp.directive("exampleDirective", function(){
+    return{
+        restrict : 'EA',
+        template : '{{value}}',
+        controller : function($scope, $element){
+            $scope.value = $scope.value + ";controller";
+        },
+        link : function(scope, element, attrs){
+            scope.value = scope.value + ";link";
+        },
+        compile : function(element, attrs){
+            return {
+                pre : function(scope, element, attrs){
+                    scope.value = scope.value + ";compile's pre";
+                },
+                post :function(scope, element, attrs){
+                    scope.value = scope.value + ";compile's post";
+                }
+            }
+        }
+    }
+});
+
