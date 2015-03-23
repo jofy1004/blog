@@ -5,7 +5,7 @@
     <link href="../css/customCss.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div ng-app="secondApp">
+<div ng-app="baseApp">
     <div ng-controller="MyController">
         <h4>时钟</h4>
         Time:{{clock.now }}
@@ -30,7 +30,7 @@
     </div>
     <hr/>
 
-    <div ng-app="secondApp">
+    <div ng-app="baseApp">
         <h4>表达式</h4>
         <div ng-controller="ExprController" >
             <input ng-model="param" type="text"/><br/>

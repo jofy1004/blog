@@ -21,18 +21,18 @@
         };
 
         /*$scope.some={
-            value: "Hello father!"
-        };
-        $scope.fatherAction = function(){
-            $scope.some.value = 'hello human, from parent.';
-        };*/
+         value: "Hello father!"
+         };
+         $scope.fatherAction = function(){
+         $scope.some.value = 'hello human, from parent.';
+         };*/
     }).controller("ChildController", function($scope) {
         $scope.childAction = function() {
             $scope.someValue = 'hello human, from child.';
         };
         /*$scope.childAction = function(){
-            $scope.some.value = 'hello human, from child.';
-        };*/
+         $scope.some.value = 'hello human, from child.';
+         };*/
     });
 
     /**
