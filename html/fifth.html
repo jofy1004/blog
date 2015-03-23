@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第五章 服务器通信</title>
+    <link href="../css/customCss.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div ng-app="requestApp">
+    <h4>$http通信</h4>
+
+    <div ng-controller="HttpController">
+        <h4>标题：{{data.title}}</h4>
+        <h4>日期：{{data.date}}</h4>
+        <h4>status：{{stauts}}</h4>
+        <h4>headers：{{headers}}</h4>
+        <h4>config：{{config}}</h4>
+
+        <div>正文：{{data.content}}</div>
+    </div>
+    <hr/>
+
+    <h4>Get通信</h4>
+
+    <div ng-controller="GetController">
+        <h4>标题：{{data.title}}</h4>
+        <h4>日期：{{data.date}}</h4>
+
+        <div>正文：{{data.content}}</div>
+    </div>
+    <hr/>
+
+    <h4>Post通信</h4>
+
+    <div ng-controller="PostController">
+        <h4>标题：{{data.title}}</h4>
+        <h4>日期：{{data.date}}</h4>
+        <h4>stauts：{{stauts}}</h4>
+        <h4>response：{{response}}</h4>
+
+        <div>正文：{{data.content}}</div>
+    </div>
+</div>
+</body>
+</html>
+<script src="../js/other/angular.js"></script>
+<script src="../js/app/service/ajaxService.js"></script>
+<script src="../js/app/fifth.js"></script>

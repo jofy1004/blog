@@ -1,0 +1,5 @@
+{
+    "title" : "AngularJS通信",
+    "date" : "2015年3月23日",
+    "content" : "我们可以使用内置的$http服务直接同外部进行通信。$http服务只是简单的封装了浏览器原生的XMLHttpRequest对象。"
+}

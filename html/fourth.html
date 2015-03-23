@@ -6,10 +6,28 @@
 </head>
 <body>
 <div ng-app="serviceApp">
+    <h4>推断式注入</h4>
     <div ng-controller="LoadDataController">
-        <h4>{{data.titleInfo}}</h4>
-        <h4>{{data.timeInfo}}</h4>
-        <div>{{data.contentInfo}}</div>
+        <h4>标题：{{data.titleInfo}}</h4>
+        <h4>日期：{{data.timeInfo}}</h4>
+
+        <div>正文：{{data.contentInfo}}</div>
+    </div>
+
+    <h4>显式注入</h4>
+    <div ng-controller="ReloadDataController">
+        <h4>标题：{{data.titleInfo}}</h4>
+        <h4>日期：{{data.timeInfo}}</h4>
+
+        <div>正文：{{data.contentInfo}}</div>
+    </div>
+
+    <h4>行内注入</h4>
+    <div ng-controller="lineDataController">
+        <h4>标题：{{data.titleInfo}}</h4>
+        <h4>日期：{{data.timeInfo}}</h4>
+
+        <div>正文：{{data.contentInfo}}</div>
     </div>
 </div>
 </body>
@@ -17,4 +35,5 @@
 <script src="../js/other/angular.js"></script>
 <script src="../js/other/jquery-1.9.1.js"></script>
 <script src="../js/test/queryData.js"></script>
+<script src="../js/app/service/service.js"></script>
 <script src="../js/app/fourth.js"></script>
