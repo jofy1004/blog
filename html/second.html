@@ -1,0 +1,80 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第二章 AngularJS基本应用</title>
+    <link href="../css/customCss.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div ng-app="secondApp">
+    <div ng-controller="MyController">
+        <h4>时钟</h4>
+        Time:{{clock.now }}
+    </div>
+    <hr/>
+
+    <div ng-controller="CalcController">
+        <h4>Click事件</h4>
+        <button ng-click="add(1)">Add</button>
+        <button ng-click="subtract(1)">Subtract</button>
+        <br/>
+        Current value:{{counter}}
+    </div>
+    <hr/>
+
+    <h4>继承</h4>
+    <div ng-init="name='father'" ng-controller="FatherController" class="border1">
+        name：{{name}}
+        <div ng-controller="SonController" class="border2">
+            name：{{name}}
+        </div>
+    </div>
+    <hr/>
+
+    <div ng-app="secondApp">
+        <h4>表达式</h4>
+        <div ng-controller="ExprController" >
+            <input ng-model="param" type="text"/><br/>
+            结果：{{result}}
+        </div>
+    </div>
+    <hr/>
+
+    <div>
+        <h4>内置过滤器</h4>
+        请输入：<input type="text" ng-model="filterParam" placeholder="world"/><br/>
+        原值：{{filterParam}}<br/>
+        字母变大写：{{filterParam | uppercase}}<br/>
+        字母变大写：{{filterParam | lowercase}}<br/>
+        数字保留2位：{{filterParam | number:2}}<br/>
+        货币：{{filterParam | currency}}<br/>
+        时间：{{filterParam | date:"yyyy"}}<br/>
+    </div>
+    <div ng-controller="FunController">
+        <h4>字符串过滤器</h4>
+        过滤包含“e”：{{ ['Ivan','Chen','Rocky','WeiWei','Eat','Pizza'] | filter:'e' }}<br/>
+        <h4>对象过滤器</h4>
+        {{[
+            {'name': 'Ivan', 'City': 'HuBei', 'favorite food': 'Pizza'},
+            {'name': 'Chen','City': 'Shanghai', 'favorite food': 'Noodle'}
+           ] | filter:{'favorite food': 'Pizza'} }}<br/>
+        <h4>函数过滤器</h4>
+        首字母大写:{{ ['Ivan','Chen','Rocky','to','eat','pizza'] | filter:isCapitalized}}<br/>
+    </div>
+    <div>
+        <h4>自定义过滤器</h4>
+        请输入：<input type="text" ng-model="customFilterParam" placeholder="world"/><br/>
+        把下划线转成驼峰输出：{{customFilterParam | customFilter}}
+    </div>
+    <hr/>
+</div>
+
+<div id="secondAppOther">
+    <h4>自定义输出符合%%</h4>
+    <input ng-model="param1" type="text"/><br/>
+    结果：%%param1%%
+</div>
+</body>
+</html>
+<script src="../js/other/angular.js"></script>
+<script src="../js/common/common.date.js"></script>
+<script src="../js/app/second.js"></script>

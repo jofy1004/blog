@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第一章 初识AngularJS</title>
+</head>
+<body>
+<div ng-app>
+    <div>
+        <h4>自动启动</h4>
+        Your name:<input type="text" ng-model="name" placeholder="World"/><br/>
+        Hello <b ng-bind="name"></b>!<br/>
+        Hello {{name || "World"}}!
+    </div>
+
+    <div ng-controller="ClockController">
+        <h4>时钟</h4>
+        Time:{{ clock.now }}
+    </div>
+</div>
+<hr/>
+
+<div id="helloDiv">
+    <div>
+        <h4>手动启动</h4>
+        Your name:<input type="text" ng-model="name1" placeholder="World"/><br/>
+        Hello <b ng-bind="name1"></b>!<br/>
+        Hello {{name1 || "World"}}!
+    </div>
+    <button id="runBtn" onClick="runAngular()">启动</button>
+</div>
+<hr/>
+
+</body>
+</html>
+<script src="../js/other/angular.js"></script>
+<script src="../js/common/common.date.js"></script>
+<script src="../js/app/first.js"></script>

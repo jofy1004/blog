@@ -1,0 +1,15 @@
+.mainBorder {
+    border: 1px solid;
+    width: 200px;
+    text-align: center;
+    padding: 10px 0px 10px;
+}
+
+.button {
+    width: 30px;
+    height: 30px;
+}
+
+.right{
+    text-align: right;
+}

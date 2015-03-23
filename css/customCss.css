@@ -83,3 +83,16 @@ p {
 .red{
     color : red;
 }
+
+.border1 {
+    width: 500px;
+    height:100px;
+    padding-left: 10px;
+    border: 1px solid #000
+}
+
+.border2 {
+    width: 400px;
+    height:50px;
+    border: 1px solid #000
+}
