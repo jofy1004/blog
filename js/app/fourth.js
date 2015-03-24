@@ -47,6 +47,7 @@
             });
         });
     }
+
     serviceApp.controller("ReloadDataController", ReloadDataController);
 
     /**

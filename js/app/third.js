@@ -14,24 +14,23 @@
      * 复制值/复制引用
      */
     directiveApp.controller("FatherController", function($scope) {
-        debugger;
         $scope.someValue = "Hello father!";
         $scope.fatherAction = function() {
             $scope.someValue = 'hello human, from parent.';
         };
 
         /*$scope.some={
-         value: "Hello father!"
+            value: "Hello father!"
          };
          $scope.fatherAction = function(){
-         $scope.some.value = 'hello human, from parent.';
+            $scope.some.value = 'hello human, from parent.';
          };*/
     }).controller("ChildController", function($scope) {
         $scope.childAction = function() {
             $scope.someValue = 'hello human, from child.';
         };
         /*$scope.childAction = function(){
-         $scope.some.value = 'hello human, from child.';
+            $scope.some.value = 'hello human, from child.';
          };*/
     });
 
@@ -106,9 +105,9 @@
     }).directive("cccBindDirective", function() {
         return {
             scope : {
-                dataVal : "@val",
-                daVal : "=",
-                sendMessage : "&"
+                claimNoOne : "@",
+                claimNoTwo : "=",
+                sendMessage : "&sendInfo"
             },
             templateUrl : "bindTemplate.html"
         }

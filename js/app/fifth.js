@@ -55,7 +55,6 @@
 
     function loadJsonUsePost($scope, http) {
         var url = "http://jofy1004.github.io/blog/data/jsonData.json";
-        debugger;
         var result = http.httpPost(url);
         result.error(function(data, stauts, headers, config) {
             $scope.stauts = stauts;
