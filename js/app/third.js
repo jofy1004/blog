@@ -42,7 +42,7 @@
         return {
             // 通过设置项来定义指令，在这里进行覆写
             restrict : "A",
-            replace : false,
+            replace : true,
             template : '<div>Directive里面定义</div>'
         }
     });

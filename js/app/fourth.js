@@ -54,8 +54,8 @@
      * 行内注入声明
      */
     serviceApp.controller("lineDataController", [ "$scope", "LoadDataService", function($scope, load) {
-        //var url = "http://jofy1004.github.io/blog/data/menu.xml";
-        var url = "http://jofy1004.github.io/blog/data/dataFile.xml";
+        var url = "http://jofy1004.github.io/blog/data/menu.xml";
+        //var url = "http://jofy1004.github.io/blog/data/dataFile.xml";
         load.loadData(url).done(function(result) {
             $scope.$apply(function() {
                 $scope.data = result;

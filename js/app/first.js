@@ -3,6 +3,7 @@ var runAngular = function() {
     angular.bootstrap(document.getElementById("helloDiv"));
 };
 
+
 /**
  * 计时器
  * @param $scope
