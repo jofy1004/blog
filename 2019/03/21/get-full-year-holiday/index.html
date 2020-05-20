@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Microsoft YaHei:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="节假日,holiday,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="引言大家都知道，每年中国政府网2019年公休安排 %}都会公布法定节日调休安排，我们如何获取这些数据呢？ 开始获取某个月的节假日网上有一些现成的访问地址，提供了这些功能。如：http://www.easybots.cn/api/holiday.php?m=201901 直接访问后，返回JSON如下。12345678910111213&amp;#123;	&quot;201901&quot;: &amp;#123;		&quot;01&quot;: &quot;2">
+<meta name="keywords" content="节假日,holiday">
+<meta property="og:type" content="article">
+<meta property="og:title" content="获取全年法定节假日API">
+<meta property="og:url" content="http://jofy1004.github.io/blog/2019/03/21/get-full-year-holiday/index.html">
+<meta property="og:site_name" content="Rocky&#39;s Blog">
+<meta property="og:description" content="引言大家都知道，每年中国政府网2019年公休安排 %}都会公布法定节日调休安排，我们如何获取这些数据呢？ 开始获取某个月的节假日网上有一些现成的访问地址，提供了这些功能。如：http://www.easybots.cn/api/holiday.php?m=201901 直接访问后，返回JSON如下。12345678910111213&amp;#123;	&quot;201901&quot;: &amp;#123;		&quot;01&quot;: &quot;2">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-20T03:13:54.441Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="获取全年法定节假日API">
+<meta name="twitter:description" content="引言大家都知道，每年中国政府网2019年公休安排 %}都会公布法定节日调休安排，我们如何获取这些数据呢？ 开始获取某个月的节假日网上有一些现成的访问地址，提供了这些功能。如：http://www.easybots.cn/api/holiday.php?m=201901 直接访问后，返回JSON如下。12345678910111213&amp;#123;	&quot;201901&quot;: &amp;#123;		&quot;01&quot;: &quot;2">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jofy1004.github.io/blog/2019/03/21/get-full-year-holiday/">
+
+
+
+
+
+  <title>获取全年法定节假日API | Rocky's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0b5e6b0c733103876d34de73c5e0d405";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rocky's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">当你学会拒绝别人，学会以牙还牙时，他们反而会尊重你，甚至敬畏你。经历越多你越相信那句话：无情一点并没有错。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/blog/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jofy1004.github.io/blog/blog/2019/03/21/get-full-year-holiday/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rocky Zhou">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog/images/tobi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rocky's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">获取全年法定节假日API</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-21T10:52:10+08:00">
+                2019-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/学习交流/" itemprop="url" rel="index">
+                    <span itemprop="name">学习交流</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>大家都知道，每年<a href="http://www.gov.cn/xinwen/2018-12/06/content_5346287.htm" target="_blank" rel="noopener">中国政府网</a>2019年公休安排 %}都会公布法定节日调休安排，我们如何获取这些数据呢？</p>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="获取某个月的节假日"><a href="#获取某个月的节假日" class="headerlink" title="获取某个月的节假日"></a>获取某个月的节假日</h2><p>网上有一些现成的访问地址，提供了这些功能。<br>如：<a href="http://www.easybots.cn/api/holiday.php?m=201901" target="_blank" rel="noopener">http://www.easybots.cn/api/holiday.php?m=201901</a> 直接访问后，返回JSON如下。<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"201901"</span>: &#123;</span><br><span class="line">		<span class="attr">"01"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"05"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"06"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"12"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"13"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"19"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"20"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"26"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"27"</span>: <span class="string">"1"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="获取多个月的节假日"><a href="#获取多个月的节假日" class="headerlink" title="获取多个月的节假日"></a>获取多个月的节假日</h2><p>后面可以接多个月份，如：<a href="http://www.easybots.cn/api/holiday.php?m=201901,201902,201903" target="_blank" rel="noopener">http://www.easybots.cn/api/holiday.php?m=201901,201902,201903</a><br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"201901"</span>: &#123;</span><br><span class="line">		<span class="attr">"01"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"05"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"06"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"12"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"13"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"19"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"20"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"26"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"27"</span>: <span class="string">"2"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">"201902"</span>: &#123;</span><br><span class="line">		<span class="attr">"04"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"05"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"06"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"07"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"08"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"09"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"10"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"16"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"17"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"23"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"24"</span>: <span class="string">"1"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">"201903"</span>: &#123;</span><br><span class="line">		<span class="attr">"02"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"03"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"09"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"10"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"16"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"17"</span>: <span class="string">"2"</span>,</span><br><span class="line">		<span class="attr">"23"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"24"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"30"</span>: <span class="string">"1"</span>,</span><br><span class="line">		<span class="attr">"31"</span>: <span class="string">"2"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>返回的JSON，1代表假日，2代表节日；由于是免费版本，代表节日或假日的标识符会随机变化，如果想要正确数据，请访问<a href="http://www.easybots.cn/holiday_api.net" target="_blank" rel="noopener">EasyBots.cn</a>去购买。<br>不过只需要区分节假日和工作日，不看标识符，那么这个数据还是正确的，包括调休。</p>
+<h2 id="获取某一天是否节假日"><a href="#获取某一天是否节假日" class="headerlink" title="获取某一天是否节假日"></a>获取某一天是否节假日</h2><p>如果只想获取某一天是否假日，可以把参数改一下，如：<a href="http://www.easybots.cn/api/holiday.php?d=20190103,20190104" target="_blank" rel="noopener">http://www.easybots.cn/api/holiday.php?d=20190103,20190104</a><br>参数同样可以多个，不过要注意的是，对于免费版本来说，此数据不准确。</p>
+<h2 id="获取工作日完整Java代码"><a href="#获取工作日完整Java代码" class="headerlink" title="获取工作日完整Java代码"></a>获取工作日完整Java代码</h2><p>下面就贴一份获取全年工作日的java代码片段：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 同步一年中的假期;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">synWorkday</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    StringBuffer sbf = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 访问的地址替换当前年份</span></span><br><span class="line">        <span class="keyword">int</span> currentYear = Calendar.getInstance().get(Calendar.YEAR);</span><br><span class="line">        URL url = <span class="keyword">new</span> URL(holiday_url.replaceAll(<span class="string">"\\&#123;year\\&#125;"</span>, String.valueOf(currentYear)));</span><br><span class="line">        HttpURLConnection connection = (HttpURLConnection) url.openConnection();</span><br><span class="line">        <span class="comment">// 插入启动钥匙</span></span><br><span class="line">        connection.setRequestMethod(<span class="string">"GET"</span>);</span><br><span class="line">        <span class="comment">// 热能装置链接</span></span><br><span class="line">        connection.connect();</span><br><span class="line">        <span class="comment">// 打开电源</span></span><br><span class="line">        InputStream is = connection.getInputStream();</span><br><span class="line">        <span class="comment">// 增加推力</span></span><br><span class="line">        BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is, <span class="string">"UTF-8"</span>));</span><br><span class="line">        String strRead = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> ((strRead = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            sbf.append(strRead);</span><br><span class="line">            sbf.append(<span class="string">"\r\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        reader.close();</span><br><span class="line">        <span class="comment">// 转换，假日JSON</span></span><br><span class="line">        JSONObject map = JSON.parseObject(sbf.toString());</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Object&gt; entry : map.entrySet()) &#123;</span><br><span class="line">            String year = entry.getKey();</span><br><span class="line">            <span class="comment">// 拼接年份到结果集，然后生成新的list</span></span><br><span class="line">            List&lt;String&gt; days = (List&lt;String&gt;) ((Map) entry.getValue()).keySet().stream().map(e -&gt; year + e).collect(Collectors.toList());</span><br><span class="line">            list.addAll(days);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取当年所有日期</span></span><br><span class="line">        List&lt;String&gt; currentYearFullDay = getYearFullDay(currentYear);</span><br><span class="line">        <span class="comment">// 移除假期，剩下工作日</span></span><br><span class="line">        currentYearFullDay.removeAll(list);</span><br><span class="line">        <span class="comment">// 排序从远端同步过来的假期数据</span></span><br><span class="line">        currentYearFullDay.sort(String::compareTo);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 查找现有数据库已经存储的数据</span></span><br><span class="line">        List&lt;Workday&gt; workdays = workdayRepository.findAllById(currentYearFullDay);</span><br><span class="line">        <span class="comment">// 转换List&lt;Workday&gt;为List&lt;String&gt;，方便删除重复数据</span></span><br><span class="line">        List&lt;String&gt; existList = workdays.stream().map(Workday::getWorkday).collect(Collectors.toList());</span><br><span class="line">        <span class="comment">// 删除重复数据，只保留没有同步过的数据</span></span><br><span class="line">        currentYearFullDay.removeAll(existList);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**********这部分是入库操作，不需要入库的请忽略 start**********/</span></span><br><span class="line">        <span class="comment">// 存储没有保存过的数据</span></span><br><span class="line">        <span class="keyword">for</span> (String d : currentYearFullDay) &#123;</span><br><span class="line">            Workday day = <span class="keyword">new</span> Workday();</span><br><span class="line">            day.setWorkday(d);</span><br><span class="line">            workdayRepository.save(day);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/********** end **********/</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取全年所有天;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">getYearFullDay</span><span class="params">(<span class="keyword">int</span> year)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; fullDayList = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">366</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">12</span>; i++) &#123;</span><br><span class="line">        fullDayList.addAll(<span class="keyword">this</span>.getMonthFullDay(year, i));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fullDayList;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取某年某个月的所有天;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">getMonthFullDay</span><span class="params">(<span class="keyword">int</span> year, <span class="keyword">int</span> month)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; fullDayList = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">31</span>);</span><br><span class="line">    SimpleDateFormat dateFormatYYYYMMDD = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyyMMdd"</span>);</span><br><span class="line">    <span class="comment">// 获得当前日期对象</span></span><br><span class="line">    Calendar cal = Calendar.getInstance();</span><br><span class="line">    cal.clear();<span class="comment">// 清除信息</span></span><br><span class="line">    cal.set(Calendar.YEAR, year);</span><br><span class="line">    <span class="comment">// 1月从0开始</span></span><br><span class="line">    cal.set(Calendar.MONTH, month - <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 当月1号</span></span><br><span class="line">    cal.set(Calendar.DAY_OF_MONTH, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> count = cal.getActualMaximum(Calendar.DAY_OF_MONTH);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= count; j++) &#123;</span><br><span class="line">        fullDayList.add(dateFormatYYYYMMDD.format(cal.getTime()));</span><br><span class="line">        cal.add(Calendar.DAY_OF_MONTH, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fullDayList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="其他节假日API："><a href="#其他节假日API：" class="headerlink" title="其他节假日API："></a>其他节假日API：</h1><h2 id="goseek"><a href="#goseek" class="headerlink" title="goseek"></a><a href="http://api.goseek.cn/" target="_blank" rel="noopener">goseek</a></h2><p><a href="http://api.goseek.cn/Tools/holiday?date=20190202" target="_blank" rel="noopener">http://api.goseek.cn/Tools/holiday?date=20190202</a><br>只有判断天是否节假日，0代表工作日，1代表节日，2代表假日，数据准确，但无节日的调休信息。</p>
+<h2 id="搜啊"><a href="#搜啊" class="headerlink" title="搜啊"></a><a href="http://tool.bitefu.net/" target="_blank" rel="noopener">搜啊</a></h2><p><a href="http://tool.bitefu.net/jiari/?d=2019" target="_blank" rel="noopener">http://tool.bitefu.net/jiari/?d=2019</a><br><a href="http://tool.bitefu.net/jiari/?d=201902" target="_blank" rel="noopener">http://tool.bitefu.net/jiari/?d=201902</a><br><a href="http://tool.bitefu.net/jiari/?d=20190203" target="_blank" rel="noopener">http://tool.bitefu.net/jiari/?d=20190203</a><br>只返回法定节日，0代表工作日，1代表调休日，2代表节日，数据准确，但是无假日，也没有节日调休，周末的补班日。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/blog/images/wechatpay.jpg" alt="Rocky Zhou 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/blog/images/alipay.jpg" alt="Rocky Zhou 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/节假日/" rel="tag"># 节假日</a>
+          
+            <a href="/blog/tags/holiday/" rel="tag"># holiday</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/03/14/about-nexT-cannot-push/" rel="next" title="关于hexo使用了nexT，但是无法push到github的问题解决">
+                <i class="fa fa-chevron-left"></i> 关于hexo使用了nexT，但是无法push到github的问题解决
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2019/03/28/jQuery-file-upload-issue-md/" rel="prev" title="jQuery-file-upload坑爹记">
+                jQuery-file-upload坑爹记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzMxNS8xOTg1Ng=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blog/images/tobi.jpg" alt="Rocky Zhou">
+            
+              <p class="site-author-name" itemprop="name">Rocky Zhou</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/blog/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/blog/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jofy1004" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jofy1004@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取某个月的节假日"><span class="nav-number">2.1.</span> <span class="nav-text">获取某个月的节假日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取多个月的节假日"><span class="nav-number">2.2.</span> <span class="nav-text">获取多个月的节假日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取某一天是否节假日"><span class="nav-number">2.3.</span> <span class="nav-text">获取某一天是否节假日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取工作日完整Java代码"><span class="nav-number">2.4.</span> <span class="nav-text">获取工作日完整Java代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他节假日API："><span class="nav-number">3.</span> <span class="nav-text">其他节假日API：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#goseek"><span class="nav-number">3.1.</span> <span class="nav-text">goseek</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜啊"><span class="nav-number">3.2.</span> <span class="nav-text">搜啊</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rocky Zhou</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=66193833";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
