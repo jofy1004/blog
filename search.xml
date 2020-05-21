@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[创建自己的VPN服务]]></title>
+    <url>%2Fblog%2F2020%2F05%2F21%2Fprivate-vnp%2F</url>
+    <content type="text"><![CDATA[引言最近vpn查封的较严，导致我的chrome无法登录，邮箱无法打开，书签无法同步，我又是个懒人，不想搞书签导出什么的，所以就想自己搭个vpn服务，仅做学习交流使用。 首先我们需要个国外的VPS国外有好多VPS服务商，有的不支持中文，对于二把刀英语的我来说麻烦；有的由于**，不支持VPN服务，反正各种原因，最后选了HostMem,支持中文，支持vpn，最便宜的$19.99/年，价格合理。买之，创建了经典云服务器，服务器信息都可以在概括中找到，用xshell直接连接； 创建VPN服务最开始选用的是shadowsocks，服务端好了，客户端用小飞机，就是连接不成功。不知道缘由，没办法改成了openVPN; 开始openVPN服务端配置 参考文章：在RHEL/CentOS 8上安装和配置OpenVPN Server的方法使用nmcli连接到Linux系统中的OpenVPN Server 下载git，因为要去github获取openVPN的安装文件 1sudo dnf -y install git 下载openVPN 1git clone https://github.com/Nyr/openvpn-install.git 进入openvpn-install目录，执行安装脚本 12chmod +x openvpn-install.shsudo ./openvpn-install.sh 一路飙车（Enter、Enter…），成功后，到此openVPN的服务端就配置好了，配置文件在/etc/openvpn/server/server.conf。 接下来要生成客户端配置文件，供客户端连接使用12cd /etc/openvpn-installsudo ./openvpn-install.sh 生成的客户端文件保存至/root下面，把它下载下来一会要配置客户端使用。友情提醒：下面这个命令要在客户端机器执行； 1scp 用户名@IP:/root/文件全名 本机保存地址 下载客户端，我是window10，所以下载win10版本的客户端，长这样↓ 安装好后，打开提示，需要配置文件，把下载好的客户端文件按照路径放进去，我放在了安装目录下的/config文件夹中。 打开找不到看右下角 接下来，连接之，然后测试 成功。。。]]></content>
+      <categories>
+        <category>学习交流</category>
+      </categories>
+      <tags>
+        <tag>vpn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[nodeJS生成JWT]]></title>
     <url>%2Fblog%2F2019%2F04%2F01%2Fjwt-for-nodejs%2F</url>
     <content type="text"><![CDATA[引言最近开始着手一个前后端分离的项目，做到用户认证，使用JWT，不了解可以参看JSON Web Token 入门教程,由于后端代码还没有，所以需要使用nodeJS模拟生成出JWT串，返回给前端使用。 如何生成要使用nodeJS生成非常简单，就像把大象装进冰箱一样，只要三步： 引入依赖组件 1npm install jsonwebtoken --save 加入到文件中，调用sign方法生成； 123let jwt = require('jsonwebtoken');let token = jwt.sign(&#123;/** **/&#125;); 输出到前端； 1ctx.response.body = token; 详细解说sign方法sign方法里面需要参数，可以参照JWT给出的说明来填写，官网给出很多语言的帮助文档，比如本文用的NodeJS：跳转到帮助文档后，可以看到sign方法需要三个参数1jwt.sign(payload, secretOrPrivateKey, [options, callback]) 第一个参数payloadJSON对象，把自己想要输出的数据都放在这个对象里面；12345678910111213141516171819202122232425&#123; userName: user, user_name: "admin", urls: [ "/claim/getTaskList" ], authorities: [ "ROLE_USER" ], menus: &#123; personalMenu: [ &#123; field: "mobileSurvey", href: "mobileSurvey", type: "A01" &#125;, &#123; field: "injuryEst", href: "", type: "B02" &#125; ], managementMenu: [] &#125;&#125; 第二个参数密码串；非对称加密把私钥填在这儿； 第三个参数 algorithm：加密类型（默认：HS256） expiresIn：有效期；格式：zeit/ms（数字：60 为60秒；字符串：”2days”为2天，也可以写为”2d”；”10h”为10小时；如果字符串”60”不写单位为60毫秒） notBefore audience issuer jwtid subject noTimestamp header keyid mutatePayload:如果为真，sign函数将直接修改payload对象。如果您需要在对payload应用声明之后、但在将其编码为令牌之前对其进行原始引用，那么这是非常有用的。]]></content>
@@ -44,10 +55,10 @@
         <category>疑难杂症</category>
       </categories>
       <tags>
-        <tag>git</tag>
         <tag>hexo</tag>
         <tag>nexT</tag>
         <tag>github</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>

@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="vpn,">
 
 
 
@@ -105,13 +105,24 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rocky&#39;s Blog">
-<meta property="og:url" content="http://jofy1004.github.io/blog/archives/index.html">
+<meta name="description" content="引言最近vpn查封的较严，导致我的chrome无法登录，邮箱无法打开，书签无法同步，我又是个懒人，不想搞书签导出什么的，所以就想自己搭个vpn服务，仅做学习交流使用。 首先我们需要个国外的VPS国外有好多VPS服务商，有的不支持中文，对于二把刀英语的我来说麻烦；有的由于**，不支持VPN服务，反正各种原因，最后选了HostMem,支持中文，支持vpn，最便宜的$19.99/年，价格合理。买之，创建">
+<meta name="keywords" content="vpn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建自己的VPN服务">
+<meta property="og:url" content="http://jofy1004.github.io/blog/2020/05/21/private-vnp/index.html">
 <meta property="og:site_name" content="Rocky&#39;s Blog">
+<meta property="og:description" content="引言最近vpn查封的较严，导致我的chrome无法登录，邮箱无法打开，书签无法同步，我又是个懒人，不想搞书签导出什么的，所以就想自己搭个vpn服务，仅做学习交流使用。 首先我们需要个国外的VPS国外有好多VPS服务商，有的不支持中文，对于二把刀英语的我来说麻烦；有的由于**，不支持VPN服务，反正各种原因，最后选了HostMem,支持中文，支持vpn，最便宜的$19.99/年，价格合理。买之，创建">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/21/private-vnp/HostMem-control.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/21/private-vnp/openVPN-client.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/21/private-vnp/openvpn-install-for-win10.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/21/private-vnp/client-ico.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/21/private-vnp/IP.png">
+<meta property="og:updated_time" content="2020-05-21T03:43:31.902Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rocky&#39;s Blog">
+<meta name="twitter:title" content="创建自己的VPN服务">
+<meta name="twitter:description" content="引言最近vpn查封的较严，导致我的chrome无法登录，邮箱无法打开，书签无法同步，我又是个懒人，不想搞书签导出什么的，所以就想自己搭个vpn服务，仅做学习交流使用。 首先我们需要个国外的VPS国外有好多VPS服务商，有的不支持中文，对于二把刀英语的我来说麻烦；有的由于**，不支持VPN服务，反正各种原因，最后选了HostMem,支持中文，支持vpn，最便宜的$19.99/年，价格合理。买之，创建">
+<meta name="twitter:image" content="http://jofy1004.github.io/blog/2020/05/21/private-vnp/HostMem-control.png">
 
 
 
@@ -141,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://jofy1004.github.io/blog/archives/">
+  <link rel="canonical" href="http://jofy1004.github.io/blog/2020/05/21/private-vnp/">
 
 
 
 
 
-  <title>归档 | Rocky's Blog</title>
+  <title>创建自己的VPN服务 | Rocky's Blog</title>
   
 
 
@@ -176,7 +187,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -322,332 +333,241 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jofy1004.github.io/blog/blog/2020/05/21/private-vnp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rocky Zhou">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog/images/tobi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rocky's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">创建自己的VPN服务</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-21T10:49:12+08:00">
+                2020-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/学习交流/" itemprop="url" rel="index">
+                    <span itemprop="name">学习交流</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2020/05/21/private-vnp/" itemprop="url">
-              
-                <span itemprop="name">创建自己的VPN服务</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-05-21T10:49:12+08:00" content="2020-05-21">
-          05-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2019/04/01/jwt-for-nodejs/" itemprop="url">
-              
-                <span itemprop="name">nodeJS生成JWT</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-01T18:14:44+08:00" content="2019-04-01">
-          04-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2019/03/28/jQuery-file-upload-issue-md/" itemprop="url">
-              
-                <span itemprop="name">jQuery-file-upload坑爹记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-28T16:44:31+08:00" content="2019-03-28">
-          03-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2019/03/21/get-full-year-holiday/" itemprop="url">
-              
-                <span itemprop="name">获取全年法定节假日API</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-21T10:52:10+08:00" content="2019-03-21">
-          03-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2019/03/14/about-nexT-cannot-push/" itemprop="url">
-              
-                <span itemprop="name">关于hexo使用了nexT，但是无法push到github的问题解决</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-14T21:53:14+08:00" content="2019-03-14">
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
+            
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2017/04/03/java8-lambda-expressions/" itemprop="url">
-              
-                <span itemprop="name">Java8中的Lambda表达式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-04-03T14:17:59+08:00" content="2017-04-03">
-          04-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2016">2016</h1>
-          </div>
-        
-        
+          
+             <span id="/blog/2020/05/21/private-vnp/" class="leancloud_visitors" data-flag-title="创建自己的VPN服务">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-        
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2016/07/14/js-this/" itemprop="url">
-              
-                <span itemprop="name">图解javascript this指向什么？</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-07-14T22:00:20+08:00" content="2016-07-14">
-          07-14
-        </time>
-      </div>
+        </div>
+      </header>
+    
 
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2016/06/29/learn-git-in-30-minutes/" itemprop="url">
-              
-                <span itemprop="name">30 分钟 git 命令入门</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-06-29T12:05:18+08:00" content="2016-06-29">
-          06-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>最近vpn查封的较严，导致我的chrome无法登录，邮箱无法打开，书签无法同步，我又是个懒人，不想搞书签导出什么的，所以就想自己搭个vpn服务，仅做学习交流使用。</p>
+<h1 id="首先我们需要个国外的VPS"><a href="#首先我们需要个国外的VPS" class="headerlink" title="首先我们需要个国外的VPS"></a>首先我们需要个国外的VPS</h1><p>国外有好多VPS服务商，有的不支持中文，对于二把刀英语的我来说麻烦；有的由于**，不支持VPN服务，反正各种原因，最后选了<a href="https://www.hostmem.com/" target="_blank" rel="noopener">HostMem</a>,支持中文，支持vpn，最便宜的$19.99/年，价格合理。<br>买之，创建了经典云服务器，服务器信息都可以在概括中找到，用xshell直接连接；<br><img src="/blog/2020/05/21/private-vnp/HostMem-control.png" alt></p>
+<h1 id="创建VPN服务"><a href="#创建VPN服务" class="headerlink" title="创建VPN服务"></a>创建VPN服务</h1><p>最开始选用的是shadowsocks，服务端好了，客户端用<a href="https://tlanyan.me/shadowsock-clients/" target="_blank" rel="noopener">小飞机</a>，就是连接不成功。不知道缘由，没办法改成了openVPN;</p>
+<h2 id="开始openVPN服务端配置"><a href="#开始openVPN服务端配置" class="headerlink" title="开始openVPN服务端配置"></a>开始openVPN服务端配置</h2><blockquote>
+<p>参考文章：<br><a href="https://ywnz.com/linuxyffq/4592.html" target="_blank" rel="noopener">在RHEL/CentOS 8上安装和配置OpenVPN Server的方法</a><br><a href="https://ywnz.com/linuxjc/4226.html" target="_blank" rel="noopener">使用nmcli连接到Linux系统中的OpenVPN Server</a></p>
+</blockquote>
+<ul>
+<li><p>下载git，因为要去github获取openVPN的安装文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf -y install git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载openVPN</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Nyr/openvpn-install.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入openvpn-install目录，执行安装脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x openvpn-install.sh</span><br><span class="line">sudo ./openvpn-install.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一路飙车（Enter、Enter…），成功后，到此openVPN的服务端就配置好了，配置文件在<code>/etc/openvpn/server/server.conf</code>。</p>
+</li>
+<li>接下来要生成客户端配置文件，供客户端连接使用<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/openvpn-install</span><br><span class="line">sudo ./openvpn-install.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/blog/2020/05/21/private-vnp/openVPN-client.png" alt></p>
+<ul>
+<li><p>生成的客户端文件保存至/root下面，把它下载下来一会要配置客户端使用。<code>友情提醒：下面这个命令要在客户端机器执行；</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp 用户名@IP:/root/文件全名 本机保存地址</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载客户端，我是window10，所以下载win10版本的客户端，长这样↓<br><img src="/blog/2020/05/21/private-vnp/openvpn-install-for-win10.png" alt></p>
+</li>
+<li>安装好后，打开提示，需要配置文件，把下载好的客户端文件按照路径放进去，我放在了安装目录下的/config文件夹中。</li>
+<li>打开找不到看右下角<br><img src="/blog/2020/05/21/private-vnp/client-ico.png" alt></li>
+<li>接下来，连接之，然后测试<br><img src="/blog/2020/05/21/private-vnp/IP.png" alt></li>
+<li>成功。。。</li>
+</ul>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/blog/images/wechatpay.jpg" alt="Rocky Zhou 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/blog/images/alipay.jpg" alt="Rocky Zhou 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/vpn/" rel="tag"># vpn</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/04/01/jwt-for-nodejs/" rel="next" title="nodeJS生成JWT">
+                <i class="fa fa-chevron-left"></i> nodeJS生成JWT
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -655,6 +575,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzMxNS8xOTg1Ng=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -675,8 +604,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -754,6 +692,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首先我们需要个国外的VPS"><span class="nav-number">2.</span> <span class="nav-text">首先我们需要个国外的VPS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建VPN服务"><span class="nav-number">3.</span> <span class="nav-text">创建VPN服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始openVPN服务端配置"><span class="nav-number">3.1.</span> <span class="nav-text">开始openVPN服务端配置</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -890,6 +844,10 @@
   
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -918,6 +876,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
