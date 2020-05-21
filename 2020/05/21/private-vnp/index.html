@@ -118,7 +118,7 @@
 <meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/21/private-vnp/openvpn-install-for-win10.png">
 <meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/21/private-vnp/client-ico.png">
 <meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/21/private-vnp/IP.png">
-<meta property="og:updated_time" content="2020-05-21T03:43:31.902Z">
+<meta property="og:updated_time" content="2020-05-21T03:52:15.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建自己的VPN服务">
 <meta name="twitter:description" content="引言最近vpn查封的较严，导致我的chrome无法登录，邮箱无法打开，书签无法同步，我又是个懒人，不想搞书签导出什么的，所以就想自己搭个vpn服务，仅做学习交流使用。 首先我们需要个国外的VPS国外有好多VPS服务商，有的不支持中文，对于二把刀英语的我来说麻烦；有的由于**，不支持VPN服务，反正各种原因，最后选了HostMem,支持中文，支持vpn，最便宜的$19.99/年，价格合理。买之，创建">
@@ -453,34 +453,17 @@
 <h2 id="开始openVPN服务端配置"><a href="#开始openVPN服务端配置" class="headerlink" title="开始openVPN服务端配置"></a>开始openVPN服务端配置</h2><blockquote>
 <p>参考文章：<br><a href="https://ywnz.com/linuxyffq/4592.html" target="_blank" rel="noopener">在RHEL/CentOS 8上安装和配置OpenVPN Server的方法</a><br><a href="https://ywnz.com/linuxjc/4226.html" target="_blank" rel="noopener">使用nmcli连接到Linux系统中的OpenVPN Server</a></p>
 </blockquote>
-<ul>
-<li><p>下载git，因为要去github获取openVPN的安装文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf -y install git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下载openVPN</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Nyr/openvpn-install.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入openvpn-install目录，执行安装脚本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x openvpn-install.sh</span><br><span class="line">sudo ./openvpn-install.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>一路飙车（Enter、Enter…），成功后，到此openVPN的服务端就配置好了，配置文件在<code>/etc/openvpn/server/server.conf</code>。</p>
-</li>
-<li>接下来要生成客户端配置文件，供客户端连接使用<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/openvpn-install</span><br><span class="line">sudo ./openvpn-install.sh</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<h3 id="下载git"><a href="#下载git" class="headerlink" title="下载git"></a>下载git</h3><p>因为要去github获取openVPN的安装文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf -y install git</span><br></pre></td></tr></table></figure></p>
+<h3 id="下载openVPN"><a href="#下载openVPN" class="headerlink" title="下载openVPN"></a>下载openVPN</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Nyr/openvpn-install.git</span><br></pre></td></tr></table></figure>
+<h3 id="执行安装openVPN"><a href="#执行安装openVPN" class="headerlink" title="执行安装openVPN"></a>执行安装openVPN</h3><p>进入openvpn-install目录，执行安装脚本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x openvpn-install.sh</span><br><span class="line">sudo ./openvpn-install.sh</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建服务端"><a href="#创建服务端" class="headerlink" title="创建服务端"></a>创建服务端</h3><p>一路飙车（Enter、Enter…），成功后，到此openVPN的服务端就配置好了，配置文件在<code>/etc/openvpn/server/server.conf</code>。</p>
+<h3 id="生成客户端"><a href="#生成客户端" class="headerlink" title="生成客户端"></a>生成客户端</h3><p>接下来要生成客户端配置文件，供客户端连接使用<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/openvpn-install</span><br><span class="line">sudo ./openvpn-install.sh</span><br></pre></td></tr></table></figure></p>
 <p><img src="/blog/2020/05/21/private-vnp/openVPN-client.png" alt></p>
-<ul>
-<li><p>生成的客户端文件保存至/root下面，把它下载下来一会要配置客户端使用。<code>友情提醒：下面这个命令要在客户端机器执行；</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp 用户名@IP:/root/文件全名 本机保存地址</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下载客户端，我是window10，所以下载win10版本的客户端，长这样↓<br><img src="/blog/2020/05/21/private-vnp/openvpn-install-for-win10.png" alt></p>
-</li>
-<li>安装好后，打开提示，需要配置文件，把下载好的客户端文件按照路径放进去，我放在了安装目录下的/config文件夹中。</li>
-<li>打开找不到看右下角<br><img src="/blog/2020/05/21/private-vnp/client-ico.png" alt></li>
-<li>接下来，连接之，然后测试<br><img src="/blog/2020/05/21/private-vnp/IP.png" alt></li>
-<li>成功。。。</li>
-</ul>
-
+<h3 id="下载客户端配置文件"><a href="#下载客户端配置文件" class="headerlink" title="下载客户端配置文件"></a>下载客户端配置文件</h3><p>生成的客户端文件保存至/root下面，把它下载下来一会要配置客户端使用。<code>友情提醒：下面这个命令要在客户端机器执行；</code><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp 用户名@IP:/root/文件全名 本机保存地址</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装客户端应用"><a href="#安装客户端应用" class="headerlink" title="安装客户端应用"></a>安装客户端应用</h3><p>下载客户端，我是window10，所以下载win10版本的客户端，长这样↓<br><img src="/blog/2020/05/21/private-vnp/openvpn-install-for-win10.png" alt></p>
+<h3 id="连接服务端"><a href="#连接服务端" class="headerlink" title="连接服务端"></a>连接服务端</h3><p>安装好后，打开提示，需要配置文件，把下载好的客户端文件按照路径放进去，我放在了安装目录下的/config文件夹中。客户端打开找不到看右下角<br><img src="/blog/2020/05/21/private-vnp/client-ico.png" alt></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>接下来，连接之，然后测试<br><img src="/blog/2020/05/21/private-vnp/IP.png" alt></p>
+<h3 id="成功。。。"><a href="#成功。。。" class="headerlink" title="成功。。。"></a>成功。。。</h3>
       
     </div>
     
@@ -702,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首先我们需要个国外的VPS"><span class="nav-number">2.</span> <span class="nav-text">首先我们需要个国外的VPS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建VPN服务"><span class="nav-number">3.</span> <span class="nav-text">创建VPN服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始openVPN服务端配置"><span class="nav-number">3.1.</span> <span class="nav-text">开始openVPN服务端配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首先我们需要个国外的VPS"><span class="nav-number">2.</span> <span class="nav-text">首先我们需要个国外的VPS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建VPN服务"><span class="nav-number">3.</span> <span class="nav-text">创建VPN服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始openVPN服务端配置"><span class="nav-number">3.1.</span> <span class="nav-text">开始openVPN服务端配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载git"><span class="nav-number">3.1.1.</span> <span class="nav-text">下载git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载openVPN"><span class="nav-number">3.1.2.</span> <span class="nav-text">下载openVPN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行安装openVPN"><span class="nav-number">3.1.3.</span> <span class="nav-text">执行安装openVPN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建服务端"><span class="nav-number">3.1.4.</span> <span class="nav-text">创建服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成客户端"><span class="nav-number">3.1.5.</span> <span class="nav-text">生成客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载客户端配置文件"><span class="nav-number">3.1.6.</span> <span class="nav-text">下载客户端配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装客户端应用"><span class="nav-number">3.1.7.</span> <span class="nav-text">安装客户端应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接服务端"><span class="nav-number">3.1.8.</span> <span class="nav-text">连接服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">3.1.9.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成功。。。"><span class="nav-number">3.1.10.</span> <span class="nav-text">成功。。。</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
