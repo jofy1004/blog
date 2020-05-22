@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="web,crawler,mzitu,">
 
 
 
@@ -105,13 +105,31 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rocky&#39;s Blog">
-<meta property="og:url" content="http://jofy1004.github.io/blog/archives/2016/index.html">
+<meta name="description" content="引言继昨天搭建好了自己的vpn后，本着闲来无事要生事的原则，想起了朋友前几天说的python爬虫，随手就找了篇文章，依葫芦画瓢起来；本人不会python，所以只能现学现卖；  参考文章：小白爬虫第一弹之抓取妹子图  搭建环境 安装python环境，下载地址安装完成，打开cmd，查看安装是否成功。1py --version     开发工具用的PyCharm的windows Professional">
+<meta name="keywords" content="web,crawler,mzitu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个妹子图的小爬虫">
+<meta property="og:url" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/index.html">
 <meta property="og:site_name" content="Rocky&#39;s Blog">
+<meta property="og:description" content="引言继昨天搭建好了自己的vpn后，本着闲来无事要生事的原则，想起了朋友前几天说的python爬虫，随手就找了篇文章，依葫芦画瓢起来；本人不会python，所以只能现学现卖；  参考文章：小白爬虫第一弹之抓取妹子图  搭建环境 安装python环境，下载地址安装完成，打开cmd，查看安装是否成功。1py --version     开发工具用的PyCharm的windows Professional">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/python.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/create-1.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/create-2.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/create-3.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/create-4.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/meizitu_link.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/meizitu_link_list.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/meizitu_link_href.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/meizitu_a.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/result.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/exefile.png">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/exeresult.png">
+<meta property="og:updated_time" content="2020-05-22T06:40:42.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rocky&#39;s Blog">
+<meta name="twitter:title" content="一个妹子图的小爬虫">
+<meta name="twitter:description" content="引言继昨天搭建好了自己的vpn后，本着闲来无事要生事的原则，想起了朋友前几天说的python爬虫，随手就找了篇文章，依葫芦画瓢起来；本人不会python，所以只能现学现卖；  参考文章：小白爬虫第一弹之抓取妹子图  搭建环境 安装python环境，下载地址安装完成，打开cmd，查看安装是否成功。1py --version     开发工具用的PyCharm的windows Professional">
+<meta name="twitter:image" content="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/python.png">
 
 
 
@@ -141,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="http://jofy1004.github.io/blog/archives/2016/">
+  <link rel="canonical" href="http://jofy1004.github.io/blog/2020/05/22/web-crawler-mzitu/">
 
 
 
 
 
-  <title>归档 | Rocky's Blog</title>
+  <title>一个妹子图的小爬虫 | Rocky's Blog</title>
   
 
 
@@ -176,7 +194,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -322,107 +340,250 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 9 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2016">2016</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jofy1004.github.io/blog/blog/2020/05/22/web-crawler-mzitu/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rocky Zhou">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog/images/tobi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rocky's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/blog/2016/07/14/js-this/" itemprop="url">
-              
-                <span itemprop="name">图解javascript this指向什么？</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">一个妹子图的小爬虫</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-07-14T22:00:20+08:00" content="2016-07-14">
-          07-14
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-22T11:17:53+08:00">
+                2020-05-22
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/学习交流/" itemprop="url" rel="index">
+                    <span itemprop="name">学习交流</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/blog/2020/05/22/web-crawler-mzitu/" class="leancloud_visitors" data-flag-title="一个妹子图的小爬虫">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2016/06/29/learn-git-in-30-minutes/" itemprop="url">
-              
-                <span itemprop="name">30 分钟 git 命令入门</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-06-29T12:05:18+08:00" content="2016-06-29">
-          06-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>继昨天搭建好了自己的vpn后，本着闲来无事要生事的原则，想起了朋友前几天说的python爬虫，随手就找了篇文章，依葫芦画瓢起来；本人不会python，所以只能现学现卖；</p>
+<blockquote>
+<p>参考文章：<a href="https://cuiqingcai.com/3179.html" target="_blank" rel="noopener">小白爬虫第一弹之抓取妹子图</a></p>
+</blockquote>
+<h1 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h1><ul>
+<li>安装python环境，<a href="https://www.python.org/downloads/release/python-383/" target="_blank" rel="noopener">下载地址</a>安装完成，打开cmd，查看安装是否成功。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py --version</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/blog/2020/05/22/web-crawler-mzitu/python.png" alt></p>
+<ul>
+<li>开发工具用的<a href="https://www.jetbrains.com/pycharm/download/#section=windows" target="_blank" rel="noopener">PyCharm</a>的windows Professional版。</li>
+</ul>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><ul>
+<li>贴图直观，跟着下图一步一步<br><img src="/blog/2020/05/22/web-crawler-mzitu/create-1.png" alt><br><img src="/blog/2020/05/22/web-crawler-mzitu/create-2.png" alt><br><img src="/blog/2020/05/22/web-crawler-mzitu/create-3.png" alt><br><img src="/blog/2020/05/22/web-crawler-mzitu/create-4.png" alt></li>
+</ul>
+<h1 id="获取依赖库"><a href="#获取依赖库" class="headerlink" title="获取依赖库"></a>获取依赖库</h1><p>requests是使用Apache2 licensed许可证的HTTP库；<br><a href="https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/#" target="_blank" rel="noopener">beautifulsoup</a>是python用于html/xml文件中提取数据的库；<br><a href="https://lxml.de/index.html" target="_blank" rel="noopener">lxml</a>是python对于html/xml解析库，支持XPath解析方式，而且解析效率非常高；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br><span class="line">pip install beautifulsoup4</span><br><span class="line">pip install lxml</span><br></pre></td></tr></table></figure>
+<h1 id="分析网页元素，找到共同点"><a href="#分析网页元素，找到共同点" class="headerlink" title="分析网页元素，找到共同点,"></a>分析网页元素，找到共同点,</h1><ul>
+<li>首先目标网站是<a href="http://www.mzitu.com/all" target="_blank" rel="noopener">妹子图</a>；<br><img src="/blog/2020/05/22/web-crawler-mzitu/meizitu_link.png" alt></li>
+<li>接下来是图片的链接，因为这些链接打开后，才是批量的图片，我们的目标就是这些连接下所有的图片；<br><img src="/blog/2020/05/22/web-crawler-mzitu/meizitu_link_list.png" alt></li>
+<li>F12、空白处右键-&gt;查看、Ctrl+Shift+i，都可以调出windows下chrome浏览器的控制台，如下图所示，目标就是&lt;ul class=”archives”&gt;标签下的&lt;a href=”<em>**</em>“&gt;标签里的href数据，如果打开这个链接，那么就能看到这个标题下的所有图片；<br><img src="/blog/2020/05/22/web-crawler-mzitu/meizitu_link_href.png" alt></li>
+<li>打开这个链接后，看到地址栏的地址中最后一位与翻页页码对应，也就是改变链接最后一位数字就可以拿到对应页码的图片，而图片真正的地址就在img标签的src中，只要有这个地址，就能拿到图片。<br><img src="/blog/2020/05/22/web-crawler-mzitu/meizitu_a.png" alt></li>
+</ul>
+<h1 id="代码如下，github下载源码"><a href="#代码如下，github下载源码" class="headerlink" title="代码如下，github下载源码"></a>代码如下，<a href="https://github.com/jofy1004/search-man.git" target="_blank" rel="noopener">github下载源码</a></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取除了图片以外的HTML页面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url, code=<span class="string">'utf-8'</span>)</span>:</span></span><br><span class="line">    <span class="comment"># 定义请求头</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">'User-Agent'</span>: <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1"</span>&#125;</span><br><span class="line">    <span class="comment"># 发出get请求获取html页面资源</span></span><br><span class="line">    html = requests.get(url, headers=headers)</span><br><span class="line">    <span class="comment"># 转成BeautifulSoup，可以供查询标签使用</span></span><br><span class="line">    <span class="keyword">return</span> BeautifulSoup(html.text, <span class="string">'lxml'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按照分类创建输入目录</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mkdir</span><span class="params">(root_path, path)</span>:</span></span><br><span class="line">    <span class="comment"># 拼接存放图片的绝对路径</span></span><br><span class="line">    path = os.path.join(root_path, str(path).strip())</span><br><span class="line">    <span class="comment"># 判断此路径是否已经存在</span></span><br><span class="line">    <span class="keyword">if</span> os.path.exists(path):</span><br><span class="line">        <span class="comment"># 进入到此文件夹中</span></span><br><span class="line">        os.chdir(path)</span><br><span class="line">        <span class="keyword">return</span> path</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 不存在，创建此路径</span></span><br><span class="line">        os.makedirs(path)</span><br><span class="line">        <span class="comment"># 进入到此文件夹中</span></span><br><span class="line">        os.chdir(path)</span><br><span class="line">        <span class="keyword">return</span> path</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主程序入口</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 获取图片存放的绝对路径</span></span><br><span class="line">    root_path = os.path.abspath(os.path.dirname(<span class="string">'search.py'</span>))</span><br><span class="line">    <span class="comment"># 获取mzitu的Soup，用于后续查找使用</span></span><br><span class="line">    main_page_soup = getHTMLText(<span class="string">'https://www.mzitu.com/all/'</span>)</span><br><span class="line">    <span class="comment"># 查找每个需要打开的连接，打开这个连接后，里面的图片才是真正需要的爬的数据</span></span><br><span class="line">    list_url = main_page_soup.find(<span class="string">'div'</span>, class_=<span class="string">'all'</span>).find(<span class="string">'ul'</span>).find_all(<span class="string">'a'</span>)</span><br><span class="line">    <span class="comment"># 获取到所有url，循环打开，获取里面图片</span></span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> list_url:</span><br><span class="line">        <span class="comment"># 获取到连接的内容，座位输出文件夹的名称，可以做到分类输出</span></span><br><span class="line">        title = url.get_text()</span><br><span class="line">        <span class="comment"># 按照标题创建文件夹，并进入到此文件夹，准备后续写入图片</span></span><br><span class="line">        mkdir(root_path + <span class="string">'/www.mzitu.com'</span>, title)</span><br><span class="line">        <span class="comment"># 获取每类标题图片的链接</span></span><br><span class="line">        href = url[<span class="string">'href'</span>]</span><br><span class="line">        <span class="comment"># 防盗链</span></span><br><span class="line">        ref_headers = &#123;<span class="string">'referer'</span>: href,</span><br><span class="line">                       <span class="string">'User-Agent'</span>: <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1"</span>&#125;</span><br><span class="line">        <span class="comment"># 获取最大页码数</span></span><br><span class="line">        <span class="comment"># html_soup = getHTMLText(href)</span></span><br><span class="line">        <span class="comment"># max_num = html_Soup.find('div', class_='pagenavi').find_all('span')[-2].get_text()</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 图片页码太多，所以这里我使用了固定5页，有需要全部的，把5可以替换成max_num+1</span></span><br><span class="line">        <span class="keyword">for</span> page <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">            <span class="comment"># 由于图片有分页，每个图片翻页连接刚好是页码数，所以拼接页码数地址</span></span><br><span class="line">            page_url = href + <span class="string">'/'</span> + str(page)</span><br><span class="line">            <span class="comment"># 获取图片HTML元素</span></span><br><span class="line">            picture_soup = getHTMLText(page_url)</span><br><span class="line">            <span class="comment"># 获取图片地址</span></span><br><span class="line">            img_url = picture_soup.find(<span class="string">'div'</span>, class_=<span class="string">'main-image'</span>).find(<span class="string">'img'</span>)[<span class="string">'src'</span>]</span><br><span class="line">            <span class="comment"># 图片的url截取作为图片名称</span></span><br><span class="line">            name = img_url[<span class="number">-9</span>:<span class="number">-4</span>]</span><br><span class="line">            <span class="comment"># 请求图片资源</span></span><br><span class="line">            img = requests.get(img_url, headers=ref_headers)</span><br><span class="line">            <span class="comment"># 获取图片流</span></span><br><span class="line">            f = open(name + <span class="string">'.jpg'</span>, <span class="string">'ab'</span>)</span><br><span class="line">            <span class="comment"># 图片写道本地磁盘</span></span><br><span class="line">            f.write(img.content)</span><br><span class="line">            <span class="comment"># 关闭写出流</span></span><br><span class="line">            f.close()</span><br><span class="line">            print(img_url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+<h1 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h1><p><img src="/blog/2020/05/22/web-crawler-mzitu/result.png" alt></p>
+<h1 id="生成可执行文件"><a href="#生成可执行文件" class="headerlink" title="生成可执行文件"></a>生成可执行文件</h1><ul>
+<li><p>python代码完成，总不能在别人的计算机上也装上依赖库，运行环境吧，接下来交给大家如何将写好的程序转换为.exe可执行文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等待结束后，查看版本，确认安装完成</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller --version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行生成</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F search.py</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/blog/2020/05/22/web-crawler-mzitu/exefile.png" alt></p>
+<h1 id="测试可执行文件"><a href="#测试可执行文件" class="headerlink" title="测试可执行文件"></a>测试可执行文件</h1><p><img src="/blog/2020/05/22/web-crawler-mzitu/exeresult.png" alt></p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/blog/images/wechatpay.jpg" alt="Rocky Zhou 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/blog/images/alipay.jpg" alt="Rocky Zhou 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/web/" rel="tag"># web</a>
+          
+            <a href="/blog/tags/crawler/" rel="tag"># crawler</a>
+          
+            <a href="/blog/tags/mzitu/" rel="tag"># mzitu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2020/05/21/private-vpn/" rel="next" title="创建自己的VPN服务">
+                <i class="fa fa-chevron-left"></i> 创建自己的VPN服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -430,6 +591,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzMxNS8xOTg1Ng=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -450,8 +620,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -529,6 +708,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建环境"><span class="nav-number">2.</span> <span class="nav-text">搭建环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建项目"><span class="nav-number">3.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取依赖库"><span class="nav-number">4.</span> <span class="nav-text">获取依赖库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析网页元素，找到共同点"><span class="nav-number">5.</span> <span class="nav-text">分析网页元素，找到共同点,</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码如下，github下载源码"><span class="nav-number">6.</span> <span class="nav-text">代码如下，github下载源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行结果"><span class="nav-number">7.</span> <span class="nav-text">执行结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成可执行文件"><span class="nav-number">8.</span> <span class="nav-text">生成可执行文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试可执行文件"><span class="nav-number">9.</span> <span class="nav-text">测试可执行文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -665,6 +860,10 @@
   
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -693,6 +892,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
