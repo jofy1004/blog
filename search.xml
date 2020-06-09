@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[shadowsocks安装]]></title>
+    <url>%2Fblog%2F2020%2F06%2F09%2Fshadowsocks-install%2F</url>
+    <content type="text"><![CDATA[引言今天又把shadowsocks拿出来配置，看看到底为啥不成功，话不多说，直接开始。 分步安装版 我使用的是CentOS 8，安装的是python3。1yum -y install python36 输入命令，查看版本显示错误。 1python --version 这是由于没有指定默认，设置默认值 1sudo alternatives --set python /usr/bin/python3 接下来安装python-pip 1curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py 最后安装shadowsocks 1pip install shadowsocks 创建shadowsocks.json文件 1vim /etc/shadowsocks.json 将以下文本copy进去，保存 1234567//此处进入vim文件编辑&#123; "server": "0.0.0.0",//这里不用改，全0代表地服务器监所有可用网络。 "server_port": 6356,//服务器端口号，1025到65535任选一。 "password": "mima123321",//设置登录密码。 "method": "rc4-md5"//加密方式。&#125; 然后创建自启动服务 1vim /etc/systemd/system/shadowsocks.service 将以下文本copy进去，保存 1234567891011# 这里进入vim文件编辑# 脚本内容如下：[Unit]Description=Shadowsocks[Service]TimeoutStartSec=0ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json[Install]WantedBy=multi-user.target 启动、停止、查看状态 123systemctl enable shadowsockssystemctl start shadowsockssystemctl status shadowsocks -l 很不幸的告诉大家，按照以上配置我没有成功启动，哇哈哈哈哈哈哈哈哈，服务器一直启动失败，不知所以然。 一键配置版 参考文章：CentOS下shadowsocks一键安装脚本 这个版本成功了，我怀疑分步版，可能创建json文件，里面编码集或者字符导致的问题。 下载别人写好的配置命令文件 1wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh 给此文件赋权限 1chmod +x shadowsocks.sh 直接运行脚本 1./shadowsocks.sh 一步步跟着提示配置完，会显示成功，但是我试过几个脚本，虽然配置成功了，但是并没有启动，所以要查看服务状态，对应的命令如下： 1234/etc/init.d/shadowsocks start/etc/init.d/shadowsocks stop/etc/init.d/shadowsocks restart/etc/init.d/shadowsocks status 最后测试 下载小飞机，连接测试成功，很奇怪，为啥最开始不行呢。]]></content>
+      <categories>
+        <category>学习交流</category>
+      </categories>
+      <tags>
+        <tag>vpn</tag>
+        <tag>shadowsocks</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[一个妹子图的小爬虫]]></title>
     <url>%2Fblog%2F2020%2F05%2F22%2Fweb-crawler-mzitu%2F</url>
     <content type="text"><![CDATA[引言继昨天搭建好了自己的vpn后，本着闲来无事要生事的原则，想起了朋友前几天说的python爬虫，随手就找了篇文章，依葫芦画瓢起来；本人不会python，所以只能现学现卖； 参考文章：小白爬虫第一弹之抓取妹子图 搭建环境 安装python环境，下载地址安装完成，打开cmd，查看安装是否成功。1py --version 开发工具用的PyCharm的windows Professional版。 创建项目 贴图直观，跟着下图一步一步 获取依赖库requests是使用Apache2 licensed许可证的HTTP库；beautifulsoup是python用于html/xml文件中提取数据的库；lxml是python对于html/xml解析库，支持XPath解析方式，而且解析效率非常高； 123pip install requestspip install beautifulsoup4pip install lxml 分析网页元素，找到共同点, 首先目标网站是妹子图； 接下来是图片的链接，因为这些链接打开后，才是批量的图片，我们的目标就是这些连接下所有的图片； F12、空白处右键-&gt;查看、Ctrl+Shift+i，都可以调出windows下chrome浏览器的控制台，如下图所示，目标就是&lt;ul class=”archives”&gt;标签下的&lt;a href=”**“&gt;标签里的href数据，如果打开这个链接，那么就能看到这个标题下的所有图片； 打开这个链接后，看到地址栏的地址中最后一位与翻页页码对应，也就是改变链接最后一位数字就可以拿到对应页码的图片，而图片真正的地址就在img标签的src中，只要有这个地址，就能拿到图片。 代码如下，github下载源码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778import requestsfrom bs4 import BeautifulSoupimport os# 获取除了图片以外的HTML页面def getHTMLText(url, code='utf-8'): # 定义请求头 headers = &#123; 'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1"&#125; # 发出get请求获取html页面资源 html = requests.get(url, headers=headers) # 转成BeautifulSoup，可以供查询标签使用 return BeautifulSoup(html.text, 'lxml')# 按照分类创建输入目录def mkdir(root_path, path): # 拼接存放图片的绝对路径 path = os.path.join(root_path, str(path).strip()) # 判断此路径是否已经存在 if os.path.exists(path): # 进入到此文件夹中 os.chdir(path) return path else: # 不存在，创建此路径 os.makedirs(path) # 进入到此文件夹中 os.chdir(path) return path# 主程序入口def main(): # 获取图片存放的绝对路径 root_path = os.path.abspath(os.path.dirname('search.py')) # 获取mzitu的Soup，用于后续查找使用 main_page_soup = getHTMLText('https://www.mzitu.com/all/') # 查找每个需要打开的连接，打开这个连接后，里面的图片才是真正需要的爬的数据 list_url = main_page_soup.find('div', class_='all').find('ul').find_all('a') # 获取到所有url，循环打开，获取里面图片 for url in list_url: # 获取到连接的内容，座位输出文件夹的名称，可以做到分类输出 title = url.get_text() # 按照标题创建文件夹，并进入到此文件夹，准备后续写入图片 mkdir(root_path + '/www.mzitu.com', title) # 获取每类标题图片的链接 href = url['href'] # 防盗链 ref_headers = &#123;'referer': href, 'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1"&#125; # 获取最大页码数 # html_soup = getHTMLText(href) # max_num = html_Soup.find('div', class_='pagenavi').find_all('span')[-2].get_text() # 图片页码太多，所以这里我使用了固定5页，有需要全部的，把5可以替换成max_num+1 for page in range(1, 5): # 由于图片有分页，每个图片翻页连接刚好是页码数，所以拼接页码数地址 page_url = href + '/' + str(page) # 获取图片HTML元素 picture_soup = getHTMLText(page_url) # 获取图片地址 img_url = picture_soup.find('div', class_='main-image').find('img')['src'] # 图片的url截取作为图片名称 name = img_url[-9:-4] # 请求图片资源 img = requests.get(img_url, headers=ref_headers) # 获取图片流 f = open(name + '.jpg', 'ab') # 图片写道本地磁盘 f.write(img.content) # 关闭写出流 f.close() print(img_url)main() 执行结果 生成可执行文件 python代码完成，总不能在别人的计算机上也装上依赖库，运行环境吧，接下来交给大家如何将写好的程序转换为.exe可执行文件。 1pip install pyinstaller 等待结束后，查看版本，确认安装完成 1pyinstaller --version 执行生成 1pyinstaller -F search.py 测试可执行文件]]></content>
@@ -21,6 +33,7 @@
         <category>学习交流</category>
       </categories>
       <tags>
+        <tag>openVPN</tag>
         <tag>vpn</tag>
       </tags>
   </entry>
