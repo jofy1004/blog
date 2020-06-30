@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="coding,">
 
 
 
@@ -105,13 +105,26 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rocky&#39;s Blog">
-<meta property="og:url" content="http://jofy1004.github.io/blog/categories/技术交流/index.html">
+<meta name="description" content="引言想把代码既提交到github，又提交到coding该如何做呢？ 创建账号、创建项目这两个网站都需要账号（废话），接着创建两个空项目（废话），把代码库地址记住，然后创建publickey； 创建publickey1ssh-keygen -t rsa -C &amp;quot;邮箱地址&amp;quot; 名字可以随便定义，要区分开git和coding，比如我把github的key就放在了github文件夹下，如">
+<meta name="keywords" content="coding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git和coding多仓库提交">
+<meta property="og:url" content="http://jofy1004.github.io/blog/2020/06/30/gitAndCodingDeploy/index.html">
 <meta property="og:site_name" content="Rocky&#39;s Blog">
+<meta property="og:description" content="引言想把代码既提交到github，又提交到coding该如何做呢？ 创建账号、创建项目这两个网站都需要账号（废话），接着创建两个空项目（废话），把代码库地址记住，然后创建publickey； 创建publickey1ssh-keygen -t rsa -C &amp;quot;邮箱地址&amp;quot; 名字可以随便定义，要区分开git和coding，比如我把github的key就放在了github文件夹下，如">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/06/30/gitAndCodingDeploy/publickey.jpg">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/06/30/gitAndCodingDeploy/key.jpg">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/06/30/gitAndCodingDeploy/sshkey.jpg">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/06/30/gitAndCodingDeploy/githubs.jpg">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/06/30/gitAndCodingDeploy/pusherror.jpg">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/06/30/gitAndCodingDeploy/nomore.jpg">
+<meta property="og:image" content="http://jofy1004.github.io/blog/2020/06/30/gitAndCodingDeploy/keysuccess.jpg">
+<meta property="og:updated_time" content="2020-06-30T10:17:26.612Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rocky&#39;s Blog">
+<meta name="twitter:title" content="git和coding多仓库提交">
+<meta name="twitter:description" content="引言想把代码既提交到github，又提交到coding该如何做呢？ 创建账号、创建项目这两个网站都需要账号（废话），接着创建两个空项目（废话），把代码库地址记住，然后创建publickey； 创建publickey1ssh-keygen -t rsa -C &amp;quot;邮箱地址&amp;quot; 名字可以随便定义，要区分开git和coding，比如我把github的key就放在了github文件夹下，如">
+<meta name="twitter:image" content="http://jofy1004.github.io/blog/2020/06/30/gitAndCodingDeploy/publickey.jpg">
 
 
 
@@ -141,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://jofy1004.github.io/blog/categories/技术交流/">
+  <link rel="canonical" href="http://jofy1004.github.io/blog/2020/06/30/gitAndCodingDeploy/">
 
 
 
 
 
-  <title>分类: 技术交流 | Rocky's Blog</title>
+  <title>git和coding多仓库提交 | Rocky's Blog</title>
   
 
 
@@ -176,7 +189,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -322,53 +335,228 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>技术交流<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jofy1004.github.io/blog/blog/2020/06/30/gitAndCodingDeploy/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rocky Zhou">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog/images/tobi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rocky's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/blog/2017/04/03/java8-lambda-expressions/" itemprop="url">
-              
-                <span itemprop="name">Java8中的Lambda表达式</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">git和coding多仓库提交</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-04-03T14:17:59+08:00" content="2017-04-03">
-          04-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-30T17:31:49+08:00">
+                2020-06-30
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/学习交流/" itemprop="url" rel="index">
+                    <span itemprop="name">学习交流</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/blog/2020/06/30/gitAndCodingDeploy/" class="leancloud_visitors" data-flag-title="git和coding多仓库提交">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>想把代码既提交到<a href="https://github.com/" target="_blank" rel="noopener">github</a>，又提交到<a href="https://coding.net/" target="_blank" rel="noopener">coding</a>该如何做呢？</p>
+<h1 id="创建账号、创建项目"><a href="#创建账号、创建项目" class="headerlink" title="创建账号、创建项目"></a>创建账号、创建项目</h1><p>这两个网站都需要账号（废话），接着创建两个空项目（废话），把代码库地址记住，然后创建publickey；</p>
+<h1 id="创建publickey"><a href="#创建publickey" class="headerlink" title="创建publickey"></a>创建publickey</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮箱地址&quot;</span><br></pre></td></tr></table></figure>
+<p>名字可以随便定义，要区分开git和coding，比如我把github的key就放在了github文件夹下，如下图：<br><img src="/blog/2020/06/30/gitAndCodingDeploy/publickey.jpg" alt></p>
+<p>然后一路回车完毕，在对应存放的地址中找到id_rsa.pub文件<br><img src="/blog/2020/06/30/gitAndCodingDeploy/key.jpg" alt></p>
+<p>打开后复制串，然后打开github创建ssh key；<br><img src="/blog/2020/06/30/gitAndCodingDeploy/sshkey.jpg" alt></p>
+<p>coding创建publickey同上；</p>
+<h1 id="关联代码仓库"><a href="#关联代码仓库" class="headerlink" title="关联代码仓库"></a>关联代码仓库</h1><p>如果以前代码关联过远程仓库，需要移除的话请使用下面命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure></p>
+<p>注意，现在远程仓库既有github，又有coding，所以远程仓库就不能使用默认的origin，我们要给他起特殊名字，比如往github提交，起的名字就是github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add github git@github.com:jofy1004/blog-factory.git</span><br></pre></td></tr></table></figure></p>
+<p>往coding提交，起的名字就叫coding<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add coding git@e.coding.net:jofy1004/blog-factory.git</span><br></pre></td></tr></table></figure></p>
+<p>然后查看绑定的远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure></p>
+<p><img src="/blog/2020/06/30/gitAndCodingDeploy/githubs.jpg" alt></p>
+<h1 id="推送代码"><a href="#推送代码" class="headerlink" title="推送代码"></a>推送代码</h1><p>推送代码分别使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push github master</span><br><span class="line"></span><br><span class="line">git push coding master</span><br></pre></td></tr></table></figure></p>
+<p>这时候发现推送不成功<br><img src="/blog/2020/06/30/gitAndCodingDeploy/pusherror.jpg" alt></p>
+<p>错误是设置的key不对，使用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -v git@github.com</span><br></pre></td></tr></table></figure></p>
+<p><img src="/blog/2020/06/30/gitAndCodingDeploy/nomore.jpg" alt></p>
+<p>我们改过名字的key，没有识别到，所以要把改过名字的key加到里面，使用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-add C:/Users/ccc-zhoufei/.ssh/github/id_rsa</span><br><span class="line"></span><br><span class="line">ssh-add C:/Users/ccc-zhoufei/.ssh/coding/id_rsa</span><br></pre></td></tr></table></figure></p>
+<p>如果使用以上命令出错，请先执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval $(ssh-agent)</span><br></pre></td></tr></table></figure></p>
+<p><img src="/blog/2020/06/30/gitAndCodingDeploy/keysuccess.jpg" alt></p>
+<p>设置完成后，在执行push，就可以分别推送到远程分支了；</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/blog/images/wechatpay.jpg" alt="Rocky Zhou 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/blog/images/alipay.jpg" alt="Rocky Zhou 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/coding/" rel="tag"># coding</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2020/06/09/shadowsocks-install/" rel="next" title="shadowsocks安装">
+                <i class="fa fa-chevron-left"></i> shadowsocks安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -376,6 +564,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzMxNS8xOTg1Ng=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -396,8 +593,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -475,6 +681,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建账号、创建项目"><span class="nav-number">2.</span> <span class="nav-text">创建账号、创建项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建publickey"><span class="nav-number">3.</span> <span class="nav-text">创建publickey</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关联代码仓库"><span class="nav-number">4.</span> <span class="nav-text">关联代码仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推送代码"><span class="nav-number">5.</span> <span class="nav-text">推送代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -611,6 +833,10 @@
   
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -639,6 +865,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

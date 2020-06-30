@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[git和coding多仓库提交]]></title>
+    <url>%2Fblog%2F2020%2F06%2F30%2FgitAndCodingDeploy%2F</url>
+    <content type="text"><![CDATA[引言想把代码既提交到github，又提交到coding该如何做呢？ 创建账号、创建项目这两个网站都需要账号（废话），接着创建两个空项目（废话），把代码库地址记住，然后创建publickey； 创建publickey1ssh-keygen -t rsa -C &quot;邮箱地址&quot; 名字可以随便定义，要区分开git和coding，比如我把github的key就放在了github文件夹下，如下图： 然后一路回车完毕，在对应存放的地址中找到id_rsa.pub文件 打开后复制串，然后打开github创建ssh key； coding创建publickey同上； 关联代码仓库如果以前代码关联过远程仓库，需要移除的话请使用下面命令1git remote rm origin 注意，现在远程仓库既有github，又有coding，所以远程仓库就不能使用默认的origin，我们要给他起特殊名字，比如往github提交，起的名字就是github1git remote add github git@github.com:jofy1004/blog-factory.git 往coding提交，起的名字就叫coding1git remote add coding git@e.coding.net:jofy1004/blog-factory.git 然后查看绑定的远程仓库1git remote -v 推送代码推送代码分别使用123git push github mastergit push coding master 这时候发现推送不成功 错误是设置的key不对，使用命令1ssh -v git@github.com 我们改过名字的key，没有识别到，所以要把改过名字的key加到里面，使用命令123ssh-add C:/Users/ccc-zhoufei/.ssh/github/id_rsassh-add C:/Users/ccc-zhoufei/.ssh/coding/id_rsa 如果使用以上命令出错，请先执行1eval $(ssh-agent) 设置完成后，在执行push，就可以分别推送到远程分支了；]]></content>
+      <categories>
+        <category>学习交流</category>
+      </categories>
+      <tags>
+        <tag>coding</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[shadowsocks安装]]></title>
     <url>%2Fblog%2F2020%2F06%2F09%2Fshadowsocks-install%2F</url>
     <content type="text"><![CDATA[引言今天又把shadowsocks拿出来配置，看看到底为啥不成功，话不多说，直接开始。 分步安装版 我使用的是CentOS 8，安装的是python3。1yum -y install python36 输入命令，查看版本显示错误。 1python --version 这是由于没有指定默认，设置默认值 1sudo alternatives --set python /usr/bin/python3 接下来安装python-pip 1curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py 最后安装shadowsocks 1pip install shadowsocks 创建shadowsocks.json文件 1vim /etc/shadowsocks.json 将以下文本copy进去，保存 1234567//此处进入vim文件编辑&#123; "server": "0.0.0.0",//这里不用改，全0代表地服务器监所有可用网络。 "server_port": 6356,//服务器端口号，1025到65535任选一。 "password": "mima123321",//设置登录密码。 "method": "rc4-md5"//加密方式。&#125; 然后创建自启动服务 1vim /etc/systemd/system/shadowsocks.service 将以下文本copy进去，保存 1234567891011# 这里进入vim文件编辑# 脚本内容如下：[Unit]Description=Shadowsocks[Service]TimeoutStartSec=0ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json[Install]WantedBy=multi-user.target 启动、停止、查看状态 123systemctl enable shadowsockssystemctl start shadowsockssystemctl status shadowsocks -l 很不幸的告诉大家，按照以上配置我没有成功启动，哇哈哈哈哈哈哈哈哈，服务器一直启动失败，不知所以然。 一键配置版 参考文章：CentOS下shadowsocks一键安装脚本 这个版本成功了，我怀疑分步版，可能创建json文件，里面编码集或者字符导致的问题。 下载别人写好的配置命令文件 1wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh 给此文件赋权限 1chmod +x shadowsocks.sh 直接运行脚本 1./shadowsocks.sh 一步步跟着提示配置完，会显示成功，但是我试过几个脚本，虽然配置成功了，但是并没有启动，所以要查看服务状态，对应的命令如下： 1234/etc/init.d/shadowsocks start/etc/init.d/shadowsocks stop/etc/init.d/shadowsocks restart/etc/init.d/shadowsocks status 最后测试 下载小飞机，连接测试成功，很奇怪，为啥最开始不行呢。]]></content>
@@ -8,8 +19,8 @@
         <category>学习交流</category>
       </categories>
       <tags>
-        <tag>shadowsocks</tag>
         <tag>vpn</tag>
+        <tag>shadowsocks</tag>
       </tags>
   </entry>
   <entry>
@@ -33,8 +44,8 @@
         <category>学习交流</category>
       </categories>
       <tags>
-        <tag>vpn</tag>
         <tag>openVPN</tag>
+        <tag>vpn</tag>
       </tags>
   </entry>
   <entry>
