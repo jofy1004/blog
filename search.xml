@@ -8,8 +8,8 @@
         <category>学习交流</category>
       </categories>
       <tags>
-        <tag>vpn</tag>
         <tag>shadowsocks</tag>
+        <tag>vpn</tag>
       </tags>
   </entry>
   <entry>
@@ -33,8 +33,8 @@
         <category>学习交流</category>
       </categories>
       <tags>
-        <tag>openVPN</tag>
         <tag>vpn</tag>
+        <tag>openVPN</tag>
       </tags>
   </entry>
   <entry>
@@ -81,10 +81,10 @@
         <category>疑难杂症</category>
       </categories>
       <tags>
-        <tag>git</tag>
         <tag>hexo</tag>
         <tag>nexT</tag>
         <tag>github</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
